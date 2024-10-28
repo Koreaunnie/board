@@ -39,10 +39,6 @@ public class BoardController {
     @GetMapping("list")
     public void listBoard(Model model) {
         model.addAttribute("boardList", service.list());
-
-//        아래와 똑같은 코드 (간단하게)
-//        Board boardList = new service.list();
-//        model.addAttribute("boardList", boardList);
     }
 
     // 게시판 > 게시물 보기
