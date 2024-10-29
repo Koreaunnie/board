@@ -15,7 +15,6 @@ import java.util.Map;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("board")
-
 public class BoardController {
     private final BoardService service;
 

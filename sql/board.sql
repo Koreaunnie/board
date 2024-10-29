@@ -7,3 +7,6 @@ CREATE TABLE Board
     created  DATETIME      NOT NULL DEFAULT NOW(),
     modified DATETIME               DEFAULT NOW() ON UPDATE NOW()
 );
+
+INSERT INTO Board (title, content, writer)
+VALUES ('test1', 'test1', 'test1');
