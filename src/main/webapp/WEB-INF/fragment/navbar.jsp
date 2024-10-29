@@ -2,14 +2,10 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <style>
+    /* common style */
     * {
         text-decoration: none;
         list-style: none;
-    }
-
-    body {
-        width: 60%;
-        margin: 0 auto;
     }
 
     input, textarea {
@@ -20,20 +16,77 @@
 
     button {
         cursor: pointer;
-        padding: 5px 7px;
+        background: var(--button-normal-color-bg);
+        color: var(--button-normal-color-font);
+        border: 0;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
     }
 
     :root {
         --table-border-color: #e7e8ea;
         --table-hover-color: #f3f3f4;
-        --description: #8a8b8c;
+
+        --button-normal-color-bg: #212529;
+        --button-normal-color-font: #fff;
 
         --small-font-size: 14px;
         --normal-font-size: 16px;
     }
+
+    fieldset {
+        border: 0;
+    }
+
+    form {
+        margin-top: 50px;
+    }
+
+    legend {
+        margin: 10px auto;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    li {
+        margin: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin: 10px 5px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .container {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    /* common style */
+
+    nav {
+        width: 100%;
+        background: #212529;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    nav ul li a {
+        color: #e7e8ea;
+    }
 </style>
 
-<div>
+<nav>
     <ul>
         <li>
             <a href="/board/list">게시판</a>
@@ -42,7 +95,21 @@
         <li>
             <a href="/board/new">글 작성하기</a>
         </li>
-        <li></li>
-        <li></li>
+
+        <li>
+            <a href="/member/join">회원가입</a>
+        </li>
+
+        <li>
+            <a href="/member/signin">로그인</a>
+        </li>
+
+        <li>
+            <a href="/member/list">회원목록</a>
+        </li>
+
+        <li>
+            <a href="/member/info">회원정보</a>
+        </li>
     </ul>
-</div>
+</nav>
