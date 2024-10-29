@@ -19,19 +19,19 @@
 <body>
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
-<div>
+<div class="container">
     <form method="post">
         <fieldset>
             <legend>게시물 작성</legend>
 
             <ul>
                 <li>
-                    <label for="input-title">제목</label>
+                    <label for="input-title">제목 *</label>
                     <input type="text" id="input-title" name="title" required>
                 </li>
 
                 <li>
-                    <label for="textarea-content">내용</label>
+                    <label for="textarea-content">내용 *</label>
                     <textarea name="content" id="textarea-content" cols="30" rows="10" required></textarea>
                 </li>
 
