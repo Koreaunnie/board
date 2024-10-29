@@ -97,19 +97,30 @@
         </li>
 
         <li>
-            <a href="/board/new">글 작성하기</a>
+            <a href="/board/new">
+                <i class="fa-solid fa-file-pen"></i>
+                글 작성하기
+            </a>
         </li>
 
         <li>
-            <a href="/member/join">회원가입</a>
+            <a href="/member/signin">
+                <i class="fa-solid fa-user"></i>
+            </a>
         </li>
 
         <li>
-            <a href="/member/signin">로그인</a>
+            <a href="/member/signout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                로그아웃
+            </a>
         </li>
 
         <li>
-            <a href="/member/list">회원목록</a>
+            <a href="/member/list">
+                <i class="fa-solid fa-address-book"></i>
+                회원목록
+            </a>
         </li>
     </ul>
 </nav>

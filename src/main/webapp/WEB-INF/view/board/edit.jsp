@@ -38,7 +38,10 @@
                 </li>
 
                 <li>
-                    <button>저장</button>
+                    <button>
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        저장
+                    </button>
                 </li>
             </ul>
         </fieldset>
