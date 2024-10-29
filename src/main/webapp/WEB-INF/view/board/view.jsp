@@ -15,7 +15,7 @@
 <body>
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
-<div>
+<div class="container">
     <form>
         <fieldset>
             <legend>${board.id}번 게시물</legend>
