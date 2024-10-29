@@ -42,18 +42,6 @@
             padding: 5px 10px;
         }
 
-        .col-1 {
-            width: 40%;
-        }
-
-        .col-2 {
-            width: 50%;
-        }
-
-        .col-3 {
-            width: 10%;
-        }
-
         .name {
             text-align: left;
         }
@@ -73,26 +61,28 @@
 <body>
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
-<table>
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <c:forEach items="${boardList}" var="board">
-        <tr onclick="location.href='/board/view?id=${board.id}'">
-            <td>${board.id}</td>
-            <td>${board.title}</td>
-            <td>${board.writer}</td>
-            <td>${board.created}</td>
+<div class="container">
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
+        </thead>
+
+        <tbody>
+        <c:forEach items="${boardList}" var="board">
+            <tr onclick="location.href='/board/view?id=${board.id}'">
+                <td>${board.id}</td>
+                <td>${board.title}</td>
+                <td>${board.writer}</td>
+                <td>${board.created}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
