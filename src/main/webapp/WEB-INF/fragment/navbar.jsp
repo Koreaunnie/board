@@ -69,6 +69,10 @@
         margin: 0 auto;
     }
 
+    .button-wrap {
+        text-align: center;
+    }
+
     /* common style */
 
     nav {
@@ -106,10 +110,6 @@
 
         <li>
             <a href="/member/list">회원목록</a>
-        </li>
-
-        <li>
-            <a href="/member/info">회원정보</a>
         </li>
     </ul>
 </nav>

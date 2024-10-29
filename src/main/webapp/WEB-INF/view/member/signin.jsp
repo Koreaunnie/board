@@ -41,11 +41,12 @@
                     <label for="input-password">비밀번호 *</label>
                     <input type="text" id="input-password" name="password" placeholder="20자 이내로 작성해주세요." required>
                 </li>
-
-                <li>
-                    <button>로그인</button>
-                </li>
             </ul>
+
+            <div class="button-wrap">
+                <button>로그인</button>
+                <button>회원가입</button>
+            </div>
         </fieldset>
     </form>
 
