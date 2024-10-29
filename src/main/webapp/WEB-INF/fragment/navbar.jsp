@@ -8,6 +8,10 @@
         list-style: none;
     }
 
+    a {
+        color: inherit;
+    }
+
     input, textarea {
         border: 1px solid #dee2e6;
         border-radius: 5px;
@@ -16,20 +20,36 @@
 
     button {
         cursor: pointer;
-        background: var(--button-normal-color-bg);
-        color: var(--button-normal-color-font);
-        border: 0;
         border-radius: 5px;
         padding: 10px 20px;
         font-size: 16px;
+    }
+
+    .btn {
+        background: var(--button-normal-color-dark);
+        color: var(--button-normal-color-light);
+        border: 1px solid var(--button-normal-color-dark);
+        box-sizing: border-box;
+    }
+
+    .btn:hover {
+        background: var(--button-normal-color-light);
+        color: var(--button-normal-color-dark);
+    }
+
+    .btn-outline {
+        background: var(--button-normal-color-light);
+        border: 1px solid var(--button-normal-color-dark);
+        box-sizing: border-box;
     }
 
     :root {
         --table-border-color: #e7e8ea;
         --table-hover-color: #f3f3f4;
 
-        --button-normal-color-bg: #212529;
-        --button-normal-color-font: #fff;
+        --button-normal-color-dark: #212529;
+        --button-normal-color-medium: #f1f1f1;
+        --button-normal-color-light: #fff;
 
         --small-font-size: 14px;
         --normal-font-size: 16px;

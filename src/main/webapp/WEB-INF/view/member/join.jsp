@@ -46,7 +46,9 @@
                 </li>
 
                 <li>
-                    <button>가입하기</button>
+                    <button class="btn">
+                        가입하기
+                    </button>
                 </li>
             </ul>
         </fieldset>

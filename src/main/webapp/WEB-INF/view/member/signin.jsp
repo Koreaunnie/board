@@ -44,12 +44,14 @@
             </ul>
 
             <div class="button-wrap">
-                <button>
+                <button class="btn">
                     로그인
                 </button>
 
-                <button>
-                    회원가입
+                <button class="btn-outline">
+                    <a href="/member/join">
+                        회원가입
+                    </a>
                 </button>
             </div>
         </fieldset>
