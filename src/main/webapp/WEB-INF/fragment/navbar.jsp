@@ -25,31 +25,53 @@
         font-size: 16px;
     }
 
-    .btn {
-        background: var(--button-normal-color-dark);
-        color: var(--button-normal-color-light);
-        border: 1px solid var(--button-normal-color-dark);
+    .btn-dark {
+        background: var(--btn-normal-dark);
+        color: var(--btn-normal-light);
+        border: 1px solid var(--btn-normal-dark);
         box-sizing: border-box;
     }
 
-    .btn:hover {
-        background: var(--button-normal-color-light);
-        color: var(--button-normal-color-dark);
+    .btn-dark:hover {
+        background: var(--btn-normal-hover);
     }
 
-    .btn-outline {
-        background: var(--button-normal-color-light);
-        border: 1px solid var(--button-normal-color-dark);
+    .btn-dark-outline {
+        background: var(--btn-normal-light);
+        border: 1px solid var(--btn-normal-dark);
         box-sizing: border-box;
     }
+
+    .btn-dark-outline:hover {
+        background: var(--btn-normal-dark);
+        color: var(--btn-normal-light);
+    }
+
+    .btn-warning {
+        background: var(--btn-warning-dark);
+        color: var(--btn-normal-light);
+        border: 1px solid var(--btn-warning-dark);
+        box-sizing: border-box;
+    }
+
+    .btn-warning:hover {
+        background: var(--btn-warning-hover);
+    }
+
 
     :root {
         --table-border-color: #e7e8ea;
         --table-hover-color: #f3f3f4;
 
-        --button-normal-color-dark: #212529;
-        --button-normal-color-medium: #f1f1f1;
-        --button-normal-color-light: #fff;
+        --btn-normal-dark: #212529;
+        --btn-normal-light: #fff;
+        --btn-normal-hover: #424649;
+        --btn-normal-hover-border: #373b3e;
+
+        --btn-warning-dark: #dc3545;
+        --btn-warning-light: #fff;
+        --btn-warning-hover: #bb2d3b;
+        --btn-warning-hover-border: #b02a37;
 
         --small-font-size: 14px;
         --normal-font-size: 16px;
@@ -91,6 +113,11 @@
 
     .button-wrap {
         text-align: center;
+    }
+
+    .button-wrap ul {
+        display: flex;
+        justify-content: center;
     }
 
     /* common style */
