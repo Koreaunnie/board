@@ -65,13 +65,12 @@ public class BoardController {
 
     // 게시판 > 게시물 삭제
     @PostMapping("delete")
-    public String deleteBoard(Integer id,
-                              RedirectAttributes rttr) {
+    public String deleteBoard(Integer id, RedirectAttributes rttr) {
         service.delete(id);
         rttr.addFlashAttribute("message", Map.of(
                 "type", "warning",
                 "text", id + "번 게시물이 삭제되었습니다."));
 
-        return "redirect:/board/list";
+        return "redirect:/board/list"; // 삭제 후 리스트 페이지로 리다이렉트
     }
 }

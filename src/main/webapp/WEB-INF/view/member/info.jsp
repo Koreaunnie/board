@@ -33,42 +33,50 @@
             <ul>
                 <li>
                     <label for="input-id">아이디</label>
-                    <input type="text" id="input-id" value="${member.id}">
+                    <input type="text" id="input-id" value="${member.id}" readonly>
                 </li>
 
                 <li>
                     <label for="input-password">비밀번호</label>
-                    <input type="text" id="input-password" value="${member.password}">
+                    <input type="text" id="input-password" value="${member.password}" readonly>
                 </li>
 
                 <li>
                     <label for="input-nickname">별명</label>
-                    <input type="text" id="input-nickname" value="${member.nickname}">
+                    <input type="text" id="input-nickname" value="${member.nickname}" readonly>
                 </li>
 
                 <li>
                     <label for="textarea-introduction">자기소개</label>
-                    <textarea id="textarea-introduction" cols="30" rows="10">${member.introduction}</textarea>
+                    <textarea id="textarea-introduction" cols="30" rows="10" readonly>${member.introduction}</textarea>
                 </li>
             </ul>
 
             <div class="button-wrap">
                 <ul>
                     <li>
-                        <a href="/member/edit?id=${member.id}" class="btn btn-dark">
-                            회원 수정
-                        </a>
+                        <form action="/member/edit" method="get" onclick="return confirm('회원 정보를 수정하시겠습니까?');">
+                            <a href="/member/edit?id=${member.id}" class="btn btn-dark">회원 수정</a>
+                        </form>
                     </li>
 
                     <li>
-                        <button class="btn-warning">
-                            회원 탈퇴
-                        </button>
+                        <form action="/member/delete" method="post" onsubmit="return confirm('정말로 탈퇴하시겠습니까?');">
+                            <input type="hidden" name="id" value="${member.id}">
+                            <button type="submit" class="btn-warning">회원 탈퇴</button>
+                        </form>
                     </li>
                 </ul>
             </div>
         </fieldset>
     </form>
+
+    <!-- alert -->
+    <c:if test="${not empty message}">
+        <div class="alert alert-${message.type}" role="alert">
+                ${message.text}
+        </div>
+    </c:if>
 </div>
 </body>
 </html>

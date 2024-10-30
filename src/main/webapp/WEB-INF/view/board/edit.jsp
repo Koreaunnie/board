@@ -48,12 +48,12 @@
         </fieldset>
     </form>
 
+    <!-- alert -->
     <c:if test="${not empty message}">
-        <div>
-                ${message}
+        <div class="alert alert-${message.type}" role="alert">
+                ${message.text}
         </div>
     </c:if>
 </div>
-
 </body>
 </html>

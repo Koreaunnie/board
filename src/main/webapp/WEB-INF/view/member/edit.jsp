@@ -47,14 +47,12 @@
 
                 <li>
                     <label for="textarea-introduction">자기소개</label>
-                    <textarea name="introduction" id="textarea-introduction" rows="10" maxlength="100">
-                        ${member.introduction}
-                    </textarea>
+                    <textarea name="introduction" id="textarea-introduction" rows="10"
+                              maxlength="100">${member.introduction}</textarea>
                 </li>
             </ul>
 
-            <div class=" button-wrap
-                    ">
+            <div class=" button-wrap">
                 <button class="btn-dark">
                     <i class="fa-solid fa-floppy-disk"></i>
                     저장

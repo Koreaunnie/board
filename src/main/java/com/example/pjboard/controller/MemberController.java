@@ -32,7 +32,7 @@ public class MemberController {
                 "type", "success",
                 "text", "회원가입 되었습니다."));
 
-        return "redirect:/board/list";
+        return "redirect:/member/list";
     }
 
     // 회원 > 회원 목록
