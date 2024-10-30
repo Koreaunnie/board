@@ -258,7 +258,7 @@
 
         <c:if test="${signedIn}">
             <li>
-                <a href="/member/signout">
+                <a href="/member/signout" onclick="return confirm('로그아웃 하시겠습니까?');">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     로그아웃
                 </a>

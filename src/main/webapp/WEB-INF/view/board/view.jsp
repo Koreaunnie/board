@@ -18,6 +18,9 @@
 <body>
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
+<%-- 수정 / 삭제 권한--%>
+<c:set value="${sessionScope.signedInMember.id == board.writer}" var="hasAccess"/>
+
 <!-- alert -->
 <c:if test="${not empty message}">
     <div class="alert alert-${message.type}" role="alert">
@@ -54,22 +57,25 @@
         </fieldset>
     </form>
 
-    <div class="button-wrap">
-        <ul>
-            <li>
-                <a href="/board/edit?id=${board.id}" onclick="return confirm('이 게시물을 수정하시겠습니까?');" class="btn btn-dark">
-                    수정
-                </a>
-            </li>
+    <c:if test="${hasAccess}">
+        <div class="button-wrap">
+            <ul>
+                <li>
+                    <a href="/board/edit?id=${board.id}" onclick="return confirm('이 게시물을 수정하시겠습니까?');"
+                       class="btn btn-dark">
+                        수정
+                    </a>
+                </li>
 
-            <li>
-                <form action="/board/delete" method="post" onsubmit="return confirm('정말로 이 게시물을 삭제하시겠습니까?');">
-                    <input type="hidden" name="id" value="${board.id}">
-                    <button type="submit" class="btn-warning">삭제</button>
-                </form>
-            </li>
-        </ul>
-    </div>
+                <li>
+                    <form action="/board/delete" method="post" onsubmit="return confirm('정말로 이 게시물을 삭제하시겠습니까?');">
+                        <input type="hidden" name="id" value="${board.id}">
+                        <button type="submit" class="btn-warning">삭제</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </c:if>
 </div>
 </body>
 </html>
