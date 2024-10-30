@@ -32,7 +32,7 @@
 
                 <li>
                     <label for="textarea-content">내용 *</label>
-                    <textarea name="content" id="textarea-content" cols="30" rows="10" required></textarea>
+                    <textarea name="content" id="textarea-content" rows="10" maxlength="5000" required></textarea>
                 </li>
 
                 <li>

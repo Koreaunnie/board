@@ -51,7 +51,6 @@ public class MemberController {
     @GetMapping("edit")
     public void editMember(Model model, String id) {
         model.addAttribute("member", service.info(id));
-        System.out.println(id);
     }
 
     // 회원 > 회원정보 수정 (수정 화면에서 수정 후 저장)

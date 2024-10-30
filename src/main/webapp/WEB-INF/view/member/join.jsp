@@ -41,7 +41,7 @@
 
                 <li>
                     <label for="textarea-introduction">자기소개</label>
-                    <textarea name="introduction" id="textarea-introduction" cols="30" rows="10"></textarea>
+                    <textarea name="introduction" id="textarea-introduction" rows="10" maxlength="100"></textarea>
                 </li>
             </ul>
 

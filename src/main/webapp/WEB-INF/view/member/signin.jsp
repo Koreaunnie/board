@@ -34,12 +34,12 @@
             <ul>
                 <li>
                     <label for="input-id">아이디</label>
-                    <input type="text" id="input-id" name="id" placeholder="20자 이내로 작성해주세요.">
+                    <input type="text" id="input-id" name="id">
                 </li>
 
                 <li>
                     <label for="input-password">비밀번호</label>
-                    <input type="text" id="input-password" name="password" placeholder="20자 이내로 작성해주세요.">
+                    <input type="text" id="input-password" name="password">
                 </li>
             </ul>
 

@@ -28,8 +28,9 @@
 
                 <li>
                     <label for="textarea-content">내용</label>
-                    <textarea name="content" id="textarea-content" cols="30" rows="10"
-                              required>${board.content}</textarea>
+                    <textarea name="content" id="textarea-content" rows="10" maxlength="5000" required>
+                        ${board.content}
+                    </textarea>
                 </li>
 
                 <li>
