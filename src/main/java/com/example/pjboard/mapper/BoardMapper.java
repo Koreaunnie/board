@@ -33,7 +33,7 @@ public interface BoardMapper {
 
     @Update("""
             UPDATE Board
-            SET title = #{title}, 
+            SET title = #{title},
                 content = #{content}, 
                 writer = #{writer}, 
                 modified = NOW()

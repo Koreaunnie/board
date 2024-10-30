@@ -37,6 +37,7 @@ public class BoardService {
     }
 
     public void delete(Integer id) {
+        // 게시물을 데이터베이스에서 삭제
         mapper.deleteById(id);
     }
 }

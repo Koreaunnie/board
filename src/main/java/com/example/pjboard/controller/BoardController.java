@@ -60,18 +60,18 @@ public class BoardController {
         rttr.addFlashAttribute("message", Map.of(
                 "type", "success",
                 "text", "게시물이 수정되었습니다."));
-        return "redirect:/board/view";
+        return "redirect:/board/list";
     }
 
+    // 게시판 > 게시물 삭제
     @PostMapping("delete")
     public String deleteBoard(Integer id,
                               RedirectAttributes rttr) {
         service.delete(id);
         rttr.addFlashAttribute("message", Map.of(
                 "type", "warning",
-                "text", "게시물이 삭제되었습니다."));
+                "text", id + "번 게시물이 삭제되었습니다."));
 
         return "redirect:/board/list";
     }
-
 }
