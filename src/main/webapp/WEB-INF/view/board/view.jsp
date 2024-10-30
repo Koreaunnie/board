@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <style>
+    </style>
 </head>
 
 <body>
@@ -47,13 +50,13 @@
     <div class="button-wrap">
         <ul>
             <li>
-                <button>
+                <button class="btn-dark">
                     <a href="/board/edit?id=${board.id}">수정</a>
                 </button>
             </li>
 
             <li>
-                <button data-as>삭제</button>
+                <button class="btn-warning">삭제</button>
             </li>
         </ul>
     </div>
