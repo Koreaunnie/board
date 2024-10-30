@@ -9,3 +9,5 @@ CREATE TABLE Member
 
 SELECT *
 FROM Member;
+
+DROP TABLE Member;

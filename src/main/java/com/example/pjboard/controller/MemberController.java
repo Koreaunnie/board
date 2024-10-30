@@ -91,7 +91,7 @@ public class MemberController {
                     "type", "success",
                     "text", "로그인 되었습니다."));
             session.setAttribute("signedInMember", member);
-            return "redirect:/board/list";
+            return "redirect:/member/list";
         } else {
             // 로그인 실패
             rttr.addFlashAttribute("message", Map.of(

@@ -57,9 +57,9 @@
     <div class="button-wrap">
         <ul>
             <li>
-                <form action="board/edit" method="get" onclick="return confirm('이 게시물을 수정하시겠습니까?');">
-                    <a href="/board/edit?id=${board.id}" class="btn btn-dark">수정</a>
-                </form>
+                <a href="/board/edit?id=${board.id}" onclick="return confirm('이 게시물을 수정하시겠습니까?');" class="btn btn-dark">
+                    수정
+                </a>
             </li>
 
             <li>

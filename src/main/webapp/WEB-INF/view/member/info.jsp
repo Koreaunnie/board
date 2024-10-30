@@ -62,9 +62,9 @@
             <div class="button-wrap">
                 <ul>
                     <li>
-                        <form action="/member/edit" method="get" onclick="return confirm('회원 정보를 수정하시겠습니까?');">
-                            <a href="/member/edit?id=${member.id}" class="btn btn-dark">회원 수정</a>
-                        </form>
+                        <a href="/member/edit?id=${member.id}" onclick="return confirm('회원 정보를 수정하시겠습니까?');"
+                           class="btn btn-dark">수정
+                        </a>
                     </li>
 
                     <li>

@@ -162,10 +162,6 @@
         border: 0;
     }
 
-    form {
-        margin-top: 30px;
-    }
-
     legend {
         margin: 10px auto;
         font-size: 2em;
@@ -190,6 +186,7 @@
     .container {
         width: 60%;
         margin: 0 auto;
+        margin-top: 30px;
     }
 
     .button-wrap {
@@ -240,11 +237,21 @@
             </a>
         </li>
 
-        <li>
-            <a href="/member/signin">
-                <i class="fa-solid fa-user"></i>
-            </a>
-        </li>
+        <c:if test="${not loggedIn}">
+            <li>
+                <a href="/member/signin">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </li>
+        </c:if>
+
+        <c:if test="${loggedIn}">
+            <li>
+                <a href="/member/info?id=${sessionScope.loggedInMember.id}">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </li>
+        </c:if>
 
         <c:if test="${loggedIn}">
             <li>

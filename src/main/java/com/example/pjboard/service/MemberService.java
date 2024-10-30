@@ -46,6 +46,7 @@ public class MemberService {
         if (member == null) {
             // 로그인 실패
             // 회원 정보가 없으면 null 반환
+            System.out.println(id + password);
             return null;
         } else {
             // 로그인 성공
