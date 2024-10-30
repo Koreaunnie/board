@@ -1,6 +1,7 @@
 package com.example.pjboard.service;
 
 import com.example.pjboard.dto.Member;
+import com.example.pjboard.mapper.BoardMapper;
 import com.example.pjboard.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberService {
     private final MemberMapper mapper;
+    private final BoardMapper boardMapper;
 
     public void join(Member member) {
         // 회원을 데이터베이스에 추가
@@ -34,13 +36,26 @@ public class MemberService {
         mapper.update(member);
     }
 
-    public void delete(String id, String password) {
-        // 회원을 데이터베이스에서 삭제
-        mapper.deleteByIdAndPassword(id, password);
+    public boolean delete(String id, String password) {
+        // 회원 정보 조회
+        Member member = mapper.selectById(id);
+
+        // 회원 삭제 성공 여부
+        // (성공하면 삭제된 행이 1개르모 cnt 에 1이 들어가고, 실패하면 삭제된 행이 없으므로 그대로 0)
+        int cnt = 0;
+        // 비밀번호 확인 후 같은 경우에만 삭제 (다르면 false 반환)
+        if (member.getPassword().equals(password)) {
+            // 게시물 (board) 먼저 삭제
+            boardMapper.deleteByMemberId(id);
+            // id, password 를 만족하는 회원을 데이터베이스에서 삭제 후 삭제된 행의 개수를 cnt 에 반환
+            cnt = mapper.deleteByIdAndPassword(id, password);
+        }
+        // cnt 가 1이면 (삭제가 성공한 경우) true를 반환하여 삭제 성공
+        return cnt == 1;
     }
 
     public Member get(String id, String password) {
-        // id, password 에 맞는 회원정보 조회
+        // id, password 를 만족하는 회원정보 조회
         Member member = mapper.selectByIdAndPassword(id, password);
 
         if (member == null) {

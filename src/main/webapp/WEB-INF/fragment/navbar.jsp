@@ -222,7 +222,7 @@
 </style>
 
 <%-- 로그인 여부 --%>
-<c:set value="${not empty sessionScope.loggedInMember}" var="loggedIn"/>
+<c:set value="${not empty sessionScope.signedInMember}" var="signedIn"/>
 
 <nav>
     <ul>
@@ -237,7 +237,7 @@
             </a>
         </li>
 
-        <c:if test="${not loggedIn}">
+        <c:if test="${not signedIn}">
             <li>
                 <a href="/member/signin">
                     <i class="fa-solid fa-user"></i>
@@ -245,7 +245,7 @@
             </li>
         </c:if>
 
-        <c:if test="${loggedIn}">
+        <c:if test="${signedIn}">
             <li>
                 <a href="/member/info?id=${sessionScope.loggedInMember.id}">
                     <i class="fa-solid fa-user"></i>
@@ -253,7 +253,7 @@
             </li>
         </c:if>
 
-        <c:if test="${loggedIn}">
+        <c:if test="${signedIn}">
             <li>
                 <a href="/member/signout">
                     <i class="fa-solid fa-right-from-bracket"></i>
@@ -271,9 +271,9 @@
     </ul>
 </nav>
 
-<c:if test="${loggedIn}">
+<c:if test="${signedIn}">
     <p class="user-info">
-            ${sessionScope.loggedInMember.id}님이 로그인하셨습니다.
+            ${sessionScope.signedInMember.id}님이 로그인하셨습니다.
     </p>
 </c:if>
 

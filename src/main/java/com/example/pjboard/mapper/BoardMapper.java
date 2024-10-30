@@ -46,4 +46,10 @@ public interface BoardMapper {
             WHERE id = #{id}
             """)
     int deleteById(Integer id);
+
+    @Delete("""
+            DELETE FROM Board
+            WHERE writer = #{memberId}
+            """)
+    int deleteByMemberId(String memberId);
 }

@@ -41,25 +41,29 @@
             <ul>
                 <li>
                     <label for="input-id">아이디</label>
-                    <input type="text" id="input-id" name="id">
+                    <input type="text" id="input-id" name="id" required>
                 </li>
 
                 <li>
                     <label for="input-password">비밀번호</label>
-                    <input type="text" id="input-password" name="password">
+                    <input type="text" id="input-password" name="password" required>
                 </li>
             </ul>
 
             <div class="button-wrap">
-                <button class="btn-dark">
-                    로그인
-                </button>
+                <ul>
+                    <li>
+                        <button class="btn-dark">
+                            로그인
+                        </button>
+                    </li>
 
-                <button class="btn-dark-outline">
-                    <a href="/member/join">
-                        회원가입
-                    </a>
-                </button>
+                    <li>
+                        <a href="/member/join" class="btn btn-dark-outline">
+                            회원가입
+                        </a>
+                    </li>
+                </ul>
             </div>
         </fieldset>
     </form>

@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Map;
@@ -67,8 +68,32 @@ public class MemberController {
 
     // 회원 > 회원 탈퇴
     @PostMapping("delete")
-    public void deleteMember(String id, String password) {
-        service.delete(id, password);
+    public String deleteMember(String id, String password,
+                               HttpSession session,
+                               RedirectAttributes rttr,
+                               @SessionAttribute("signedInMember") Member member) {
+
+        if (service.delete(id, password)) {
+            // 탈퇴 성공
+            rttr.addFlashAttribute("message", Map.of(
+                    "type", "success",
+                    "text", "탈퇴가 완료되었습니다."));
+
+            // 탈퇴 성공 후 세션을 종료하고 로그아웃 상태로 만듦
+            session.invalidate();
+            return "redirect:/member/signin";
+        } else {
+            // 탈퇴 실패
+            rttr.addFlashAttribute("message", Map.of(
+                    "type", "warning",
+                    "text", "비밀번호가 일치하지 않습니다."));
+
+            // 탈퇴 실패 후 다시 회원 정보를 보기 위한 리다이렉트 (id 를 info 에 넘김)
+            rttr.addAttribute("id", id);
+            return "redirect:/member/info";
+        }
+
+
     }
 
     // 회원 > 로그인 (로그인 화면으로 이동)
@@ -99,7 +124,19 @@ public class MemberController {
                     "text", "일치하는 아이디나 패스워드가 없습니다."));
             return "redirect:/member/signin";
         }
-
     }
+
+    @RequestMapping("signout")
+    public String signout(HttpSession session,
+                          RedirectAttributes rttr) {
+
+        session.invalidate();
+        rttr.addFlashAttribute("message", Map.of(
+                "type", "success",
+                "text", "로그아웃 되었습니다."));
+
+        return "redirect:/member/signin";
+    }
+
 
 }
