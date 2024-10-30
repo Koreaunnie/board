@@ -98,12 +98,28 @@ public class BoardController {
 
     // 게시판 > 게시물 삭제
     @PostMapping("delete")
-    public String deleteBoard(Integer id, RedirectAttributes rttr) {
-        service.delete(id);
-        rttr.addFlashAttribute("message", Map.of(
-                "type", "warning",
-                "text", id + "번 게시물이 삭제되었습니다."));
+    public String deleteBoard(Integer id,
+                              RedirectAttributes rttr,
+                              @SessionAttribute("signedInMember") Member member) {
 
-        return "redirect:/board/list"; // 삭제 후 리스트 페이지로 리다이렉트
+        try {
+            // 삭제 성공
+            service.delete(id);
+
+            rttr.addFlashAttribute("message", Map.of(
+                    "type", "warning",
+                    "text", id + "번 게시물이 삭제되었습니다."));
+
+            // 삭제 후 게시판 목록으로 리다이렉트
+            return "redirect:/board/list";
+        } catch (Exception e) {
+            // 삭제 중 예외 발생 시
+            rttr.addFlashAttribute("message", Map.of("type", "danger",
+                    "text", id + "번 게시물이 삭제중 문제가 발생하였습니다."));
+            // 삭제 실패 후 다시 해당 id의 게시물을 보기 위한 리다이렉트 (id 를 넘김)
+            rttr.addAttribute("id", id);
+
+            return "redirect:/board/view";
+        }
     }
 }

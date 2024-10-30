@@ -88,7 +88,7 @@ public class MemberController {
                     "type", "warning",
                     "text", "비밀번호가 일치하지 않습니다."));
 
-            // 탈퇴 실패 후 다시 회원 정보를 보기 위한 리다이렉트 (id 를 info 에 넘김)
+            // 탈퇴 실패 후 다시 해당 id 의 회원 정보를 보기 위한 리다이렉트 (id 를 info 에 넘김)
             rttr.addAttribute("id", id);
             return "redirect:/member/info";
         }
