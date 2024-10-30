@@ -2,6 +2,7 @@ package com.example.pjboard.controller;
 
 import com.example.pjboard.dto.Member;
 import com.example.pjboard.service.MemberService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,15 +71,35 @@ public class MemberController {
         service.delete(id, password);
     }
 
-    // 회원 > 로그인
+    // 회원 > 로그인 (로그인 화면으로 이동)
     @GetMapping("signin")
     public void signin() {
 
     }
 
+    // 회원 > 로그인 (로그인 처리)
     @PostMapping("signin")
-    public void signin(String id, String password) {
-        service.get(id, password);
+    public String signin(String id, String password,
+                         RedirectAttributes rttr,
+                         HttpSession session) {
+
+        Member member = service.get(id, password);
+
+        if (member != null) {
+            // 로그인 성공
+            rttr.addFlashAttribute("message", Map.of(
+                    "type", "success",
+                    "text", "로그인 되었습니다."));
+            session.setAttribute("member", member);
+            return "redirect:/board/list";
+        } else {
+            // 로그인 실패
+            rttr.addFlashAttribute("message", Map.of(
+                    "type", "danger",
+                    "text", "일치하는 아이디나 패스워드가 없습니다."));
+            return "redirect:/member/signin";
+        }
+
     }
 
 }

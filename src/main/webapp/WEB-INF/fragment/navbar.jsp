@@ -216,6 +216,12 @@
     nav ul li a {
         color: #e7e8ea;
     }
+
+    .user-info {
+        text-align: right;
+        margin-top: -5px;
+        padding-right: 10px;
+    }
 </style>
 
 <nav>
@@ -252,3 +258,7 @@
         </li>
     </ul>
 </nav>
+
+<p class="user-info">
+    ${member.id}님이 로그인하셨습니다.
+</p>

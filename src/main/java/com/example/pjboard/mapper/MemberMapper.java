@@ -35,21 +35,20 @@ public interface MemberMapper {
             """)
     int update(Member member);
 
-    @Select("""
-            SELECT *
-            FROM Member
-            WHERE id = #{id}
-                AND password = #{password}
-            """)
-    int selectByIdAndPassword(String id, String password);
-
-
     @Delete("""
             DELETE FROM Member
             WHERE id = #{id}
                 AND password = #{password}
             """)
     int deleteByIdAndPassword(String id, String password);
+
+    @Select("""
+            SELECT *
+            FROM Member
+            WHERE id = #{id}
+                AND password = #{password}
+            """)
+    Member selectByIdAndPassword(String id, String password);
 
 
 }

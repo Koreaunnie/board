@@ -39,9 +39,19 @@ public class MemberService {
         mapper.deleteByIdAndPassword(id, password);
     }
 
-    public void get(String id, String password) {
-        // id, password 로 회원 조회 (로그인)
-        mapper.selectByIdAndPassword(id, password);
+    public Member get(String id, String password) {
+        // id, password 에 맞는 회원정보 조회
+        Member member = mapper.selectByIdAndPassword(id, password);
+
+        if (member == null) {
+            // 로그인 실패
+            // 회원 정보가 없으면 null 반환
+            return null;
+        } else {
+            // 로그인 성공
+            // 회원 정보 반환
+            return member;
+        }
     }
 
 
