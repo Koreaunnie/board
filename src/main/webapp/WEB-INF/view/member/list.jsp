@@ -67,7 +67,7 @@
 
         <tbody>
         <c:forEach items="${memberList}" var="member">
-            <tr onclick="location.href='/board/view?id=${member.id}'">
+            <tr onclick="location.href='/member/info?id=${member.id}'">
                 <td>${member.id}</td>
                 <td>${member.password}</td>
                 <td>${member.name}</td>
