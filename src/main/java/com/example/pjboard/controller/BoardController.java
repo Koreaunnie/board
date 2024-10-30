@@ -63,8 +63,26 @@ public class BoardController {
 
     // 게시판 > 게시물 수정 (수정 화면으로 넘기기)
     @GetMapping("edit")
-    public void editBoard(Model model, Integer id) {
-        model.addAttribute("board", service.get(id));
+    public String editBoard(Model model, Integer id,
+                            RedirectAttributes rttr,
+                            @SessionAttribute("signedInMember") Member member) {
+
+        // 게시물 id 조회
+        Board board = service.get(id);
+
+        // 게시물 id 와 로그인한 사용자 id가 일치하는지 확인
+        if (board.getWriter().equals(member.getId())) {
+            // 사용자가 게시물의 작성자일 경우, 해당 게시물 객체를 모델에 추가하여 뷰에 전달
+            model.addAttribute("board", service.get(id));
+            // 요청을 처리한 후 해당 (edit) 뷰로 이동
+            return null;
+        } else {
+            rttr.addFlashAttribute("message", Map.of(
+                    "type", "danger",
+                    "text", "게시물 수정 권한이 없습니다."));
+
+            return "redirect:/board/list";
+        }
     }
 
     // 게시판 > 게시물 수정 (수정 화면에서 수정 후 저장)
