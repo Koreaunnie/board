@@ -41,7 +41,7 @@
                 </li>
 
                 <li>
-                    <button>저장</button>
+                    <button class="btn-dark">저장</button>
                 </li>
             </ul>
         </fieldset>
