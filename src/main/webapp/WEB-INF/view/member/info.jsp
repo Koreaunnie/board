@@ -43,8 +43,8 @@
                 </li>
 
                 <li>
-                    <label for="input-name">이름</label>
-                    <input type="text" id="input-name" value="${member.name}">
+                    <label for="input-nickname">별명</label>
+                    <input type="text" id="input-nickname" value="${member.nickname}">
                 </li>
 
                 <li>

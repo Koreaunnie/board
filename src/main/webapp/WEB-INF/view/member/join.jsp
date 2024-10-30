@@ -35,8 +35,8 @@
                 </li>
 
                 <li>
-                    <label for="input-name">이름 *</label>
-                    <input type="text" id="input-name" name="name" placeholder="15자 이내로 작성해주세요." required>
+                    <label for="input-nickname">별명 *</label>
+                    <input type="text" id="input-nickname" name="nickname" placeholder="15자 이내로 작성해주세요." required>
                 </li>
 
                 <li>

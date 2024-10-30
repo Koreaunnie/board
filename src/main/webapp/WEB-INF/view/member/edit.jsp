@@ -13,6 +13,8 @@
 </head>
 
 <body>
+<c:import url="/WEB-INF/fragment/navbar.jsp"/>
+
 <div class="container">
     <form method="post">
         <fieldset>
@@ -30,8 +32,8 @@
                 </li>
 
                 <li>
-                    <label for="input-name">이름 *</label>
-                    <input type="text" id="input-name" name="name" value="${member.name}">
+                    <label for="input-nickname">별명 *</label>
+                    <input type="text" id="input-nickname" name="nickname" value="${member.nickname}">
                 </li>
 
                 <li>
@@ -44,7 +46,8 @@
 
             <div class="button-wrap">
                 <button class="btn-dark">
-                    가입하기
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    저장
                 </button>
             </div>
         </fieldset>

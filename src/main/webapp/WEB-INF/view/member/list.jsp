@@ -60,7 +60,7 @@
         <tr>
             <th>아이디</th>
             <th>비밀번호</th>
-            <th>이름</th>
+            <th>별명</th>
             <th>가입일</th>
         </tr>
         </thead>
@@ -70,7 +70,7 @@
             <tr onclick="location.href='/member/info?id=${member.id}'">
                 <td>${member.id}</td>
                 <td>${member.password}</td>
-                <td>${member.name}</td>
+                <td>${member.nickname}</td>
                 <td>${member.joined}</td>
             </tr>
         </c:forEach>

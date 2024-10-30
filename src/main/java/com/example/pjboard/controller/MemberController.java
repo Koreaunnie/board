@@ -58,7 +58,6 @@ public class MemberController {
         service.update(member);
     }
 
-
     // 회원 > 회원 탈퇴
     @PostMapping("delete")
     public void deleteMember(String id, String password) {
