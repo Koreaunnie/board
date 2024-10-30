@@ -16,6 +16,7 @@
             font-size: 12px;
             margin-left: 10px;
             margin-top: 7px;
+            color: #555555;
         }
     </style>
 </head>
@@ -44,12 +45,17 @@
 
                 <li>
                     <label for="input-password">비밀번호</label>
-                    <input type="text" id="input-password" name="password" value="${member.password}">
+                    <input type="text" id="input-password" name="password" value="${member.password}"
+                           pattern="[A-Za-z0-9]{1,20}" maxlength="20"
+                           title="영어 알파벳과 숫자만 입력 가능합니다. (1~20자)" required>
+                    <p>20자 이내 영문과 숫자로만 작성해주세요.</p>
                 </li>
 
                 <li>
                     <label for="input-nickname">별명 *</label>
-                    <input type="text" id="input-nickname" name="nickname" value="${member.nickname}">
+                    <input type="text" id="input-nickname" name="nickname" value="${member.nickname}" maxlength="15"
+                           required>
+                    <p>15자 이내로 작성해주세요.</p>
                 </li>
 
                 <li>

@@ -30,7 +30,7 @@
             <ul>
                 <li>
                     <label for="input-title">제목</label>
-                    <input type="text" id="input-title" name="title" value="${board.title}" required>
+                    <input type="text" id="input-title" name="title" value="${board.title}" maxlength="50" required>
                 </li>
 
                 <li>

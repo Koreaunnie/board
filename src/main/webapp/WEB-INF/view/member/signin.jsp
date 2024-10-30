@@ -34,7 +34,7 @@
 </c:if>
 
 <div class="container">
-    <form method="get">
+    <form method="post">
         <fieldset>
             <legend>로그인</legend>
 

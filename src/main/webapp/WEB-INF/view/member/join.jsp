@@ -33,17 +33,22 @@
             <ul>
                 <li>
                     <label for="input-id">아이디 *</label>
-                    <input type="text" id="input-id" name="id" placeholder="20자 이내로 작성해주세요." required>
+                    <input type="text" id="input-id" name="id" placeholder="20자 이내 영문과 숫자로 작성해주세요."
+                           pattern="[A-Za-z0-9]{1,20}" maxlength="20"
+                           title="영어 알파벳과 숫자만 입력 가능합니다. (1~20자)" required>
                 </li>
 
                 <li>
                     <label for="input-password">비밀번호 *</label>
-                    <input type="text" id="input-password" name="password" placeholder="20자 이내로 작성해주세요." required>
+                    <input type="text" id="input-password" name="password" placeholder="20자 이내 영문과 숫자로 작성해주세요."
+                           pattern="[A-Za-z0-9]{1,20}" maxlength="20"
+                           title="영어 알파벳과 숫자만 입력 가능합니다. (1~20자)" required>
                 </li>
 
                 <li>
                     <label for="input-nickname">별명 *</label>
-                    <input type="text" id="input-nickname" name="nickname" placeholder="15자 이내로 작성해주세요." required>
+                    <input type="text" id="input-nickname" name="nickname" placeholder="15자 이내로 작성해주세요."
+                           maxlength="15" required>
                 </li>
 
                 <li>

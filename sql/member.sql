@@ -6,3 +6,6 @@ CREATE TABLE Member
     introduction VARCHAR(100),
     joined       DATETIME    NOT NULL DEFAULT NOW()
 );
+
+SELECT *
+FROM Member;
