@@ -1,6 +1,7 @@
 package com.example.pjboard.controller;
 
 import com.example.pjboard.dto.Board;
+import com.example.pjboard.dto.Member;
 import com.example.pjboard.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Map;
@@ -18,16 +20,29 @@ import java.util.Map;
 public class BoardController {
     private final BoardService service;
 
-    // 게시판 > 게시물 작성
+    // 게시판 > 게시물 작성 (로그인 여부 확인)
     @GetMapping("new")
-    public void newBoard() {
+    public String newBoard(@SessionAttribute(value = "signedInMember", required = false) Member member,
+                           Model model,
+                           RedirectAttributes rttr) {
 
+        if (member != null) {
+            // 로그인 한 상태
+            return "board/new";
+        } else {
+            // 로그인 안 한 상태
+            rttr.addFlashAttribute("message", Map.of(
+                    "type", "danger",
+                    "text", "로그인한 회원만 글 작성이 가능합니다."));
+            return "redirect:/member/signin";
+        }
     }
 
     @PostMapping("new")
     public String newBoard(Board board,
-                           RedirectAttributes rttr) {
-        service.add(board);
+                           RedirectAttributes rttr,
+                           @SessionAttribute("signedInMember") Member member) {
+        service.add(board, member);
         rttr.addFlashAttribute("message", Map.of(
                 "type", "success",
                 "text", "게시물이 작성되었습니다."));

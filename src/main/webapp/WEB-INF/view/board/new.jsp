@@ -41,11 +41,6 @@
                     <label for="textarea-content">내용 *</label>
                     <textarea name="content" id="textarea-content" rows="10" maxlength="5000" required></textarea>
                 </li>
-
-                <li>
-                    <label for="input-writer">작성자</label>
-                    <input type="text" id="input-writer" name="writer">
-                </li>
             </ul>
 
             <div class="button-wrap">

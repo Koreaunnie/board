@@ -1,6 +1,7 @@
 package com.example.pjboard.service;
 
 import com.example.pjboard.dto.Board;
+import com.example.pjboard.dto.Member;
 import com.example.pjboard.mapper.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,9 @@ import java.util.List;
 public class BoardService {
     private final BoardMapper mapper;
 
-    public void add(Board board) {
+    public void add(Board board, Member member) {
         // 게시물을 데이터베이스에 추가
-        mapper.insert(board);
+        mapper.insert(board, member);
     }
 
     public List<Board> list() {
