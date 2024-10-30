@@ -1,9 +1,7 @@
 package com.example.pjboard.mapper;
 
 import com.example.pjboard.dto.Member;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -19,10 +17,9 @@ public interface MemberMapper {
     @Select("""
             SELECT *
             FROM Member
-            WHERE joined DESC
+            ORDER BY joined DESC
             """)
     List<Member> selectAll();
-
 
     @Select("""
             SELECT *
@@ -31,6 +28,13 @@ public interface MemberMapper {
             """)
     Member selectById(String id);
 
+    @Update("""
+            UPDATE Member
+            SET password = #{password}, name = #{name}, introduction = #{introduction}
+            WHERE id = #{id}
+            """)
+    int update(Member member);
+
     @Select("""
             SELECT *
             FROM Member
@@ -38,6 +42,14 @@ public interface MemberMapper {
                 AND password = #{password}
             """)
     int selectByIdAndPassword(String id, String password);
+
+
+    @Delete("""
+            DELETE FROM Member
+            WHERE id = #{id}
+                AND password = #{password}
+            """)
+    int deleteByIdAndPassword(String id, String password);
 
 
 }
