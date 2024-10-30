@@ -31,7 +31,7 @@
             <ul>
                 <li>
                     <label for="input-id">아이디</label>
-                    <input type="text" id="input-id" value="id" disabled>
+                    <input type="text" id="input-id" value="${member.id}" disabled>
                     <p>id는 수정이 불가합니다.</p>
                 </li>
 

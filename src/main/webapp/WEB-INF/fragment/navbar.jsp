@@ -10,6 +10,7 @@
 
     a {
         color: inherit;
+        display: block;
     }
 
     input, textarea {
@@ -19,6 +20,13 @@
     }
 
     button {
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .btn {
         cursor: pointer;
         border-radius: 5px;
         padding: 10px 20px;
@@ -77,17 +85,22 @@
         --normal-font-size: 16px;
     }
 
+    h1 {
+        text-align: center;
+        margin: 30px;
+    }
+
     fieldset {
         border: 0;
     }
 
     form {
-        margin-top: 50px;
+        margin-top: 30px;
     }
 
     legend {
         margin: 10px auto;
-        font-size: 25px;
+        font-size: 2em;
         font-weight: bold;
     }
 

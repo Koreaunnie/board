@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-
     <style>
 
     </style>
@@ -54,24 +53,22 @@
             </ul>
 
             <div class="button-wrap">
-                <button class="btn-dark">
-                    <a href="/member/edit?id=${member.id}">
-                        회원 수정
-                    </a>
-                </button>
+                <ul>
+                    <li>
+                        <a href="/member/edit?id=${member.id}" class="btn btn-dark">
+                            회원 수정
+                        </a>
+                    </li>
 
-                <button class="btn-warning">
-                    회원 탈퇴
-                </button>
+                    <li>
+                        <button class="btn-warning">
+                            회원 탈퇴
+                        </button>
+                    </li>
+                </ul>
             </div>
         </fieldset>
     </form>
-
-    <c:if test="${not empty message}">
-        <div>
-                ${message}
-        </div>
-    </c:if>
 </div>
 </body>
 </html>

@@ -29,17 +29,18 @@ public class MemberService {
         return mapper.selectById(id);
     }
 
-    public void update(Member member) {
+    public void edit(Member member) {
+        // 회원을 데이터베이스에서 수정
         mapper.update(member);
     }
 
     public void delete(String id, String password) {
-        // id, password 매치 후 회원 삭제
+        // 회원을 데이터베이스에서 삭제
         mapper.deleteByIdAndPassword(id, password);
     }
 
     public void get(String id, String password) {
-        // id, password 가 매치되는 회원 조회
+        // id, password 로 회원 조회 (로그인)
         mapper.selectByIdAndPassword(id, password);
     }
 

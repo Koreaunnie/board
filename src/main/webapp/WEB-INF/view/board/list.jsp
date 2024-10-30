@@ -62,6 +62,8 @@
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
 <div class="container">
+    <h1>게시판</h1>
+
     <table>
         <thead>
         <tr>

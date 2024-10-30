@@ -50,9 +50,7 @@
     <div class="button-wrap">
         <ul>
             <li>
-                <button class="btn-dark">
-                    <a href="/board/edit?id=${board.id}">수정</a>
-                </button>
+                <a href="/board/edit?id=${board.id}" class="btn btn-dark">수정</a>
             </li>
 
             <li>
@@ -61,6 +59,11 @@
         </ul>
     </div>
 
+    <div class="form-wrap">
+        <form action="/board/delete" method="post" id="form-delete" data-bs-target="#deleteConfirmModal">
+            <input type="hidden" name="id" value="${board.id}">
+        </form>
+    </div>
 
     <div class="modal-wrap">
         <div class="modal-content">
@@ -76,17 +79,17 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button">닫기</button>
-                <button type="button" form="form-delete">삭제</button>
+                <button type="button" class="btn-dark-outline">
+                    닫기
+                </button>
+
+                <button type="button" form="form-delete" class="btn-warning">
+                    삭제
+                </button>
             </div>
         </div>
     </div>
 
-    <div class="form-wrap">
-        <form action="/board/delete" method="post" id="form-delete" data-bs-target="#deleteConfirmModal">
-            <input type="hidden" name="id" value="${board.id}">
-        </form>
-    </div>
 
 </div>
 </body>

@@ -55,6 +55,8 @@
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
 <div class="container">
+    <h1>회원 목록</h1>
+
     <table>
         <thead>
         <tr>

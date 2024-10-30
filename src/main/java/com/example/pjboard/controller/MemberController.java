@@ -47,15 +47,22 @@ public class MemberController {
         model.addAttribute("member", service.info(id));
     }
 
-    // 회원 > 회원정보 > 회원정보 수정
+    // 회원 > 회원정보 수정 (수정 화면으로 넘기기)
     @GetMapping("edit")
     public void editMember(Model model, String id) {
         model.addAttribute("member", service.info(id));
+        System.out.println(id);
     }
 
+    // 회원 > 회원정보 수정 (수정 화면에서 수정 후 저장)
     @PostMapping("edit")
-    public void editMember(Member member, String id) {
-        service.update(member);
+    public String editMember(Member member,
+                             RedirectAttributes rttr) {
+        service.edit(member);
+        rttr.addFlashAttribute("message", Map.of(
+                "type", "success",
+                "text", "회원 정보가 수정되었습니다."));
+        return "redirect:/member/list";
     }
 
     // 회원 > 회원 탈퇴
