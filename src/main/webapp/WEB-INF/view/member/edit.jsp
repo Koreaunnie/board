@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <style>
+        p {
+            font-size: 12px;
+            margin-left: 10px;
+            margin-top: 7px;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,7 +31,8 @@
             <ul>
                 <li>
                     <label for="input-id">아이디</label>
-                    <input type="text" id="input-id" name="id" value="${member.id}">
+                    <input type="text" id="input-id" value="id" disabled>
+                    <p>id는 수정이 불가합니다.</p>
                 </li>
 
                 <li>
