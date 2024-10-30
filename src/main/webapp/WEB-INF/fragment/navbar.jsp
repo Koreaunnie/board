@@ -67,12 +67,14 @@
     }
 
     .alert {
-        margin: 20px 0; /* 위아래 여백 */
-        padding: 15px 20px; /* 패딩 */
-        border-radius: 5px; /* 둥근 모서리 */
-        font-size: 16px; /* 글자 크기 */
+        width: 60%;
+        margin: 30px auto;
+        padding: 15px 20px;
+        border-radius: 5px;
         position: relative; /* 상대 위치 */
     }
+
+    /* -------------------------- alert --------------------------- */
 
     /* 성공 메시지 */
     .alert-success {
@@ -94,7 +96,45 @@
         color: #721c24; /* 어두운 빨간색 텍스트 */
         border: 1px solid #f5c6cb; /* 연한 빨간색 테두리 */
     }
-    
+
+    /* -------------------------- modal --------------------------- */
+
+    /* 모달 배경 */
+    .modal {
+        display: none; /* 기본적으로 숨김 */
+        position: fixed; /* 고정 위치 */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+        justify-content: center; /* 가로 중앙 정렬 */
+        align-items: center; /* 세로 중앙 정렬 */
+    }
+
+    /* 모달 콘텐츠 */
+    .modal-content {
+        background-color: white; /* 흰색 배경 */
+        border-radius: 5px; /* 둥근 모서리 */
+        padding: 20px; /* 내부 여백 */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+        width: 300px; /* 너비 */
+    }
+
+    /* 닫기 버튼 스타일 */
+    .modal-header .close {
+        cursor: pointer; /* 클릭 커서 */
+    }
+
+    /* :target 선택자로 모달을 보이게 함 */
+    .modal:target {
+        display: flex; /* 모달 표시 */
+    }
+
+    .modal-footer ul {
+        display: flex;
+    }
+
     :root {
         --table-border-color: #e7e8ea;
         --table-hover-color: #f3f3f4;
@@ -159,26 +199,6 @@
     .button-wrap ul {
         display: flex;
         justify-content: center;
-    }
-
-    .modal-wrap {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .modal-content {
-        background: white;
-        padding: 20px;
-        border-radius: 5px;
-        width: 300px;
     }
 
     /* common style */

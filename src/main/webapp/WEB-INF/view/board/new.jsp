@@ -46,11 +46,43 @@
                     <label for="input-writer">작성자</label>
                     <input type="text" id="input-writer" name="writer">
                 </li>
-
-                <li>
-                    <button class="btn-dark">저장</button>
-                </li>
             </ul>
+
+            <div class="button-wrap">
+                <ul>
+                    <li>
+                        <a href="#confirmationModal" class="btn btn-dark">저장</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- modal : 확인 팝업 메시지 -->
+            <div id="confirmationModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>게시물 등록 확인</h5>
+                        <a href="#" class="close">&times;</a>
+                    </div>
+
+                    <div class="modal-body">
+                        게시물을 등록하시겠습니까?
+                    </div>
+
+                    <div class="modal-footer">
+                        <ul>
+                            <li>
+                                <form action="/your-submit-endpoint" method="post">
+                                    <button type="submit" class="btn-dark">등록</button>
+                                </form>
+                            </li>
+
+                            <li>
+                                <a href="#" class="btn btn-dark-outline">닫기</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </fieldset>
     </form>
 </div>

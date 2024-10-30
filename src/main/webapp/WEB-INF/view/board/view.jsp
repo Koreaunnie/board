@@ -71,29 +71,5 @@
         </ul>
     </div>
 </div>
-
-<%-- modal (js 필요) --%>
-<%--    <div class="modal-wrap">--%>
-<%--        <div class="modal-content">--%>
-<%--            <div class="modal-header">--%>
-<%--                <h5 id="deleteConfirmModal">삭제 확인</h5>--%>
-<%--            </div>--%>
-
-<%--            <div class="modal-body">--%>
-<%--                정말로 이 게시물을 삭제하시겠습니까?--%>
-<%--            </div>--%>
-
-<%--            <div class="modal-footer">--%>
-<%--                <button type="button" class="btn-dark-outline">--%>
-<%--                    닫기--%>
-<%--                </button>--%>
-
-<%--                <button type="button" form="form-delete" class="btn-warning">--%>
-<%--                    삭제--%>
-<%--                </button>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-
 </body>
 </html>
