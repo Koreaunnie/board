@@ -31,12 +31,10 @@ public interface BoardMapper {
             """)
     Board selectById(Integer id);
 
-
     @Update("""
             UPDATE Board
             SET title = #{title},
-                content = #{content}, 
-                writer = #{writer}, 
+                content = #{content},
                 modified = NOW()
             WHERE id = #{id}
             """)
