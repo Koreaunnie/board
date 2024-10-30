@@ -224,6 +224,9 @@
     }
 </style>
 
+<%-- 로그인 여부 --%>
+<c:set value="${not empty sessionScope.loggedInMember}" var="loggedIn"/>
+
 <nav>
     <ul>
         <li>
@@ -243,12 +246,14 @@
             </a>
         </li>
 
-        <li>
-            <a href="/member/signout">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                로그아웃
-            </a>
-        </li>
+        <c:if test="${loggedIn}">
+            <li>
+                <a href="/member/signout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    로그아웃
+                </a>
+            </li>
+        </c:if>
 
         <li>
             <a href="/member/list">
@@ -259,6 +264,9 @@
     </ul>
 </nav>
 
-<p class="user-info">
-    ${member.id}님이 로그인하셨습니다.
-</p>
+<c:if test="${loggedIn}">
+    <p class="user-info">
+            ${sessionScope.loggedInMember.id}님이 로그인하셨습니다.
+    </p>
+</c:if>
+
