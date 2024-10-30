@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>회원 > 회원정보</title>
+    <title>회원 > 회원 정보</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -29,7 +29,7 @@
 <div class="container">
     <form>
         <fieldset>
-            <legend>회원정보</legend>
+            <legend>회원 정보</legend>
 
             <ul>
                 <li>
@@ -51,11 +51,19 @@
                     <label for="textarea-introduction">자기소개</label>
                     <textarea id="textarea-introduction" cols="30" rows="10">${member.introduction}</textarea>
                 </li>
-
-                <li>
-                    <button>가입하기</button>
-                </li>
             </ul>
+
+            <div class="button-wrap">
+                <button class="btn-dark">
+                    <a href="/member/edit?id=${member.id}">
+                        회원 수정
+                    </a>
+                </button>
+
+                <button class="btn-warning">
+                    회원 탈퇴
+                </button>
+            </div>
         </fieldset>
     </form>
 
