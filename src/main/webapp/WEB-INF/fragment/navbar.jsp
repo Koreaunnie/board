@@ -230,12 +230,15 @@
             <a href="/board/list">게시판</a>
         </li>
 
-        <li>
-            <a href="/board/new">
-                <i class="fa-solid fa-file-pen"></i>
-                글 작성하기
-            </a>
-        </li>
+        <c:if test="${signedIn}">
+            <li>
+                <a href="/board/new">
+                    <i class="fa-solid fa-file-pen"></i>
+                    게시글 작성
+                </a>
+            </li>
+        </c:if>
+
 
         <c:if test="${not signedIn}">
             <li>
@@ -247,7 +250,7 @@
 
         <c:if test="${signedIn}">
             <li>
-                <a href="/member/info?id=${sessionScope.loggedInMember.id}">
+                <a href="/member/info?id=${sessionScope.signedInMember.id}">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </li>
