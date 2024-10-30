@@ -12,7 +12,6 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <style>
-
     </style>
 </head>
 
@@ -42,15 +41,15 @@
 
                 <li>
                     <label for="textarea-introduction">자기소개</label>
-                    <textarea name="introduction" id="textarea-introduction" cols="30" rows="10" required></textarea>
-                </li>
-
-                <li>
-                    <button class="btn">
-                        가입하기
-                    </button>
+                    <textarea name="introduction" id="textarea-introduction" cols="30" rows="10"></textarea>
                 </li>
             </ul>
+
+            <div class="button-wrap">
+                <button class="btn-dark">
+                    가입하기
+                </button>
+            </div>
         </fieldset>
     </form>
 
