@@ -66,7 +66,9 @@ public class MemberService {
         } else {
             // 로그인 성공
             List<String> authList = mapper.selectAuthById(id);
+            // 권한 추가
             member.setAuthorization(authList);
+            System.out.println("로그인한 사용자 권한: " + authList); // 추가 로그
 
             // 회원 정보 반환
             return member;

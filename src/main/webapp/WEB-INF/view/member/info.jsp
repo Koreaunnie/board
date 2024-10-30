@@ -25,6 +25,9 @@
 <body>
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
+<%-- 수정 / 삭제 권한 --%>
+<c:set value="${sessionScope.loggedInMember.id == member.id}" var="hasAccess"/>
+
 <!-- alert -->
 <c:if test="${not empty message}">
     <div class="alert alert-${message.type}" role="alert">
@@ -59,24 +62,58 @@
                 </li>
             </ul>
 
-            <div class="button-wrap">
+            <c:if test="${hasAccess}">
+                <div class="button-wrap">
+                    <ul>
+                        <li>
+                            <a href="/member/edit?id=${member.id}" onclick="return confirm('회원 정보를 수정하시겠습니까?');"
+                               class="btn btn-dark">수정
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#passwordConfirmationModal" class="btn btn-warning">탈퇴</a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
+        </fieldset>
+    </form>
+
+    <!-- modal : 확인 팝업 메시지 -->
+    <div id="passwordConfirmationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>회원 탈퇴 확인</h5>
+                <a href="#" class="close">&times;</a>
+            </div>
+
+            <div class="modal-body">
+                <form action="/member/delete" method="post" id="form-delete">
+                    <input type="hidden" name="id" value="${member.id}">
+                    <label for="input-password" class="form-label">
+                        암호를 입력하세요.
+                    </label>
+                    <input class="form-control" type="text" name="password" id="input-password">
+                </form>
+            </div>
+
+            <div class="modal-footer">
                 <ul>
                     <li>
-                        <a href="/member/edit?id=${member.id}" onclick="return confirm('회원 정보를 수정하시겠습니까?');"
-                           class="btn btn-dark">수정
-                        </a>
+                        <a href="#" class="btn btn-dark-outline">닫기</a>
                     </li>
 
                     <li>
-                        <form action="/member/delete" method="post" onsubmit="return confirm('정말로 탈퇴하시겠습니까?');">
+                        <form action="/member/delete" method="post">
                             <input type="hidden" name="id" value="${member.id}">
-                            <button type="submit" class="btn-warning">회원 탈퇴</button>
+                            <button type="submit" class="btn-warning">탈퇴</button>
                         </form>
                     </li>
                 </ul>
             </div>
-        </fieldset>
-    </form>
+        </div>
+    </div>
 </div>
 </body>
 </html>

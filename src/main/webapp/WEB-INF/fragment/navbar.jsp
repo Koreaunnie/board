@@ -222,10 +222,10 @@
 </style>
 
 <%-- 로그인 여부 --%>
-<c:set value="${not empty sessionScope.signedInMember}" var="signedIn"/>
+<c:set value="${not empty sessionScope.loggedInMember}" var="loggedIn"/>
 
 <%-- 관리자 여부--%>
-<c:set value="${sessionScope.signedInMember.authorization.contains('admin')}" var="isAdmin"/>
+<c:set value="${sessionScope.loggedInMember.authorization.contains('admin')}" var="isAdmin"/>
 
 <nav>
     <ul>
@@ -233,42 +233,41 @@
             <a href="/board/list">게시판</a>
         </li>
 
-        <c:if test="${signedIn}">
+        <c:if test="${loggedIn}">
             <li>
                 <a href="/board/new">
-                    <i class="fa-solid fa-file-pen"></i>
                     게시글 작성
                 </a>
             </li>
         </c:if>
 
 
-        <c:if test="${not signedIn}">
+        <c:if test="${not loggedIn}">
             <li>
-                <a href="/member/signin">
+                <a href="/member/login">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </li>
         </c:if>
 
-        <c:if test="${signedIn}">
+        <c:if test="${loggedIn}">
             <li>
-                <a href="/member/info?id=${sessionScope.signedInMember.id}">
+                <a href="/member/info?id=${sessionScope.loggedInMember.id}">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </li>
         </c:if>
 
-        <c:if test="${signedIn}">
+        <c:if test="${loggedIn}">
             <li>
-                <a href="/member/signout" onclick="return confirm('로그아웃 하시겠습니까?');">
+                <a href="/member/logout" onclick="return confirm('로그아웃 하시겠습니까?');">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     로그아웃
                 </a>
             </li>
         </c:if>
 
-        <c:if test="${signedIn && isAdmin}">
+        <c:if test="${loggedIn && isAdmin}">
             <li>
                 <a href="/member/list">
                     <i class="fa-solid fa-address-book"></i>
@@ -279,9 +278,9 @@
     </ul>
 </nav>
 
-<c:if test="${signedIn}">
+<c:if test="${loggedIn}">
     <p class="user-info">
-            ${sessionScope.signedInMember.id}님이 로그인하셨습니다.
+            ${sessionScope.loggedInMember.id}님이 로그인하셨습니다.
     </p>
 </c:if>
 

@@ -22,7 +22,7 @@ public class BoardController {
 
     // 게시판 > 게시물 작성 (로그인 여부 확인)
     @GetMapping("new")
-    public String newBoard(@SessionAttribute(value = "signedInMember", required = false) Member member,
+    public String newBoard(@SessionAttribute(value = "loggedInMember", required = false) Member member,
                            Model model,
                            RedirectAttributes rttr) {
 
@@ -34,14 +34,14 @@ public class BoardController {
             rttr.addFlashAttribute("message", Map.of(
                     "type", "danger",
                     "text", "로그인한 회원만 글 작성이 가능합니다."));
-            return "redirect:/member/signin";
+            return "redirect:/member/login";
         }
     }
 
     @PostMapping("new")
     public String newBoard(Board board,
                            RedirectAttributes rttr,
-                           @SessionAttribute("signedInMember") Member member) {
+                           @SessionAttribute("loggedInMember") Member member) {
         service.add(board, member);
         rttr.addFlashAttribute("message", Map.of(
                 "type", "success",
@@ -65,7 +65,7 @@ public class BoardController {
     @GetMapping("edit")
     public String editBoard(Model model, Integer id,
                             RedirectAttributes rttr,
-                            @SessionAttribute("signedInMember") Member member) {
+                            @SessionAttribute("loggedInMember") Member member) {
 
         // 게시물 id 조회
         Board board = service.get(id);
@@ -100,7 +100,7 @@ public class BoardController {
     @PostMapping("delete")
     public String deleteBoard(Integer id,
                               RedirectAttributes rttr,
-                              @SessionAttribute("signedInMember") Member member) {
+                              @SessionAttribute("loggedInMember") Member member) {
 
         try {
             // 삭제 성공
