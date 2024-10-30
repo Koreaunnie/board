@@ -54,6 +54,7 @@ public class MemberService {
         return cnt == 1;
     }
 
+    // 로그인
     public Member get(String id, String password) {
         // id, password 를 만족하는 회원정보 조회
         Member member = mapper.selectByIdAndPassword(id, password);
@@ -61,14 +62,18 @@ public class MemberService {
         if (member == null) {
             // 로그인 실패
             // 회원 정보가 없으면 null 반환
-            System.out.println(id + password);
             return null;
         } else {
             // 로그인 성공
+            List<String> authList = mapper.selectAuthById(id);
+            member.setAuthorization(authList);
+
             // 회원 정보 반환
             return member;
         }
     }
 
-
+    public boolean hasAccess(String id, Member member) {
+        return id.equals(member.getId());
+    }
 }

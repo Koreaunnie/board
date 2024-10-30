@@ -7,7 +7,15 @@ CREATE TABLE Member
     joined       DATETIME    NOT NULL DEFAULT NOW()
 );
 
-SELECT *
-FROM Member;
+# 관리자 권한 테이블
+CREATE TABLE authorization
+(
+    id   VARCHAR(50) REFERENCES Member (id),
+    name VARCHAR(100) NOT NULL,
+    PRIMARY KEY (id, name)
+);
 
-DROP TABLE Member;
+# 관리자 권한 부여
+INSERT INTO authorization
+    (id, name)
+VALUES ('admin', 'admin');

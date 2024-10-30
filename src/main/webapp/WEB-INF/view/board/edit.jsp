@@ -40,11 +40,6 @@
                 </li>
 
                 <li>
-                    <label for="input-writer">작성자</label>
-                    <input type="text" id="input-writer" name="writer" value="${board.writer}">
-                </li>
-
-                <li>
                     <button class="btn-dark">
                         <i class="fa-solid fa-floppy-disk"></i>
                         저장

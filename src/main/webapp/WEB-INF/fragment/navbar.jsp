@@ -224,6 +224,9 @@
 <%-- 로그인 여부 --%>
 <c:set value="${not empty sessionScope.signedInMember}" var="signedIn"/>
 
+<%-- 관리자 여부--%>
+<c:set value="${sessionScope.signedInMember.authorization.contains('admin')}" var="isAdmin"/>
+
 <nav>
     <ul>
         <li>
@@ -265,12 +268,14 @@
             </li>
         </c:if>
 
-        <li>
-            <a href="/member/list">
-                <i class="fa-solid fa-address-book"></i>
-                회원목록
-            </a>
-        </li>
+        <c:if test="${signedIn && isAdmin}">
+            <li>
+                <a href="/member/list">
+                    <i class="fa-solid fa-address-book"></i>
+                    회원목록
+                </a>
+            </li>
+        </c:if>
     </ul>
 </nav>
 

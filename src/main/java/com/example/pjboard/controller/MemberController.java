@@ -39,8 +39,22 @@ public class MemberController {
 
     // 회원 > 회원 목록
     @GetMapping("list")
-    public void listMember(Model model) {
-        model.addAttribute("memberList", service.list());
+    public String listMember(Model model,
+                             @SessionAttribute(value = "signedInMember", required = false) Member member,
+                             RedirectAttributes rttr) {
+
+        // 관리자 권한 확인
+        if (member != null && member.getAuthorization().contains("admin")) {
+            // 관리자 확인 성공
+            model.addAttribute("memberList", service.list());
+            return null;
+        } else {
+            // 관리자가 아닐 시
+            rttr.addFlashAttribute("message", Map.of(
+                    "type", "danger",
+                    "text", "관리자만 회원 목록 조회가 가능합니다."));
+            return "redirect:/member/signin";
+        }
     }
 
     // 회원 > 회원정보 상세조회
@@ -51,19 +65,51 @@ public class MemberController {
 
     // 회원 > 회원정보 수정 (수정 화면으로 넘기기)
     @GetMapping("edit")
-    public void editMember(Model model, String id) {
-        model.addAttribute("member", service.info(id));
+    public String editMember(Model model, String id,
+                             @SessionAttribute("signedInMember") Member member,
+                             RedirectAttributes rttr) {
+
+        // 수정 권한 확인
+        if (service.hasAccess(id, member)) {
+            // 권환 확인 완료
+            model.addAttribute("member", service.info(id));
+            return null;
+        } else {
+            // 권한 없음
+            rttr.addFlashAttribute("message", Map.of("type", "danger",
+                    "text", "권한이 없습니다."));
+            return "redirect:/member/login";
+        }
     }
 
     // 회원 > 회원정보 수정 (수정 화면에서 수정 후 저장)
     @PostMapping("edit")
     public String editMember(Member member,
-                             RedirectAttributes rttr) {
-        service.edit(member);
-        rttr.addFlashAttribute("message", Map.of(
-                "type", "success",
-                "text", "회원 정보가 수정되었습니다."));
-        return "redirect:/member/list";
+                             RedirectAttributes rttr,
+                             @SessionAttribute("signedInMember") Member signedInMember) {
+
+        if (service.hasAccess(member.getId(), signedInMember)) {
+            try {
+                service.edit(member);
+                rttr.addFlashAttribute("message", Map.of(
+                        "type", "success",
+                        "text", "회원 정보가 수정되었습니다."));
+
+            } catch (Exception e) {
+                rttr.addFlashAttribute("message", Map.of("type", "danger",
+                        "text", STR."\{member.getNickname()}은 이미 사용중인 별명입니다."));
+                rttr.addAttribute("id", member.getId());
+                // 수정 페이지로 리다이렉트
+                return "redirect:/member/edit?id=" + member.getId();
+            }
+            rttr.addAttribute("id", member.getId());
+            // 수정 페이지로 리다이렉트
+            return "redirect:/member/edit?id=" + member.getId();
+        } else {
+            rttr.addFlashAttribute("message", Map.of("type", "danger",
+                    "text", "권한이 없습니다."));
+            return "redirect:/member/signin";
+        }
     }
 
     // 회원 > 회원 탈퇴
@@ -73,27 +119,34 @@ public class MemberController {
                                RedirectAttributes rttr,
                                @SessionAttribute("signedInMember") Member member) {
 
-        if (service.delete(id, password)) {
-            // 탈퇴 성공
-            rttr.addFlashAttribute("message", Map.of(
-                    "type", "success",
-                    "text", "탈퇴가 완료되었습니다."));
+        if (service.hasAccess(id, member)) {
+            if (service.delete(id, password)) {
+                // 탈퇴 성공
+                rttr.addFlashAttribute("message", Map.of(
+                        "type", "success",
+                        "text", "탈퇴가 완료되었습니다."));
 
-            // 탈퇴 성공 후 세션을 종료하고 로그아웃 상태로 만듦
+                // 탈퇴 성공 후 세션을 종료하고 로그아웃 상태로 만듦
+                session.invalidate();
+                return "redirect:/member/signin";
+            } else {
+                // 탈퇴 실패
+                rttr.addFlashAttribute("message", Map.of(
+                        "type", "warning",
+                        "text", "비밀번호가 일치하지 않습니다."));
+
+                // 탈퇴 실패 후 다시 해당 id 의 회원 정보를 보기 위한 리다이렉트 (id 를 info 에 넘김)
+                rttr.addAttribute("id", id);
+                return "redirect:/member/info";
+            }
+        } else {
+            rttr.addFlashAttribute("message", Map.of(
+                    "type", "danger",
+                    "text", "권한이 없습니다."));
+
             session.invalidate();
             return "redirect:/member/signin";
-        } else {
-            // 탈퇴 실패
-            rttr.addFlashAttribute("message", Map.of(
-                    "type", "warning",
-                    "text", "비밀번호가 일치하지 않습니다."));
-
-            // 탈퇴 실패 후 다시 해당 id 의 회원 정보를 보기 위한 리다이렉트 (id 를 info 에 넘김)
-            rttr.addAttribute("id", id);
-            return "redirect:/member/info";
         }
-
-
     }
 
     // 회원 > 로그인 (로그인 화면으로 이동)
@@ -116,7 +169,7 @@ public class MemberController {
                     "type", "success",
                     "text", "로그인 되었습니다."));
             session.setAttribute("signedInMember", member);
-            return "redirect:/member/list";
+            return "redirect:/board/list";
         } else {
             // 로그인 실패
             rttr.addFlashAttribute("message", Map.of(
