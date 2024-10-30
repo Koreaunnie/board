@@ -66,7 +66,35 @@
         background: var(--btn-warning-hover);
     }
 
+    .alert {
+        margin: 20px 0; /* 위아래 여백 */
+        padding: 15px 20px; /* 패딩 */
+        border-radius: 5px; /* 둥근 모서리 */
+        font-size: 16px; /* 글자 크기 */
+        position: relative; /* 상대 위치 */
+    }
 
+    /* 성공 메시지 */
+    .alert-success {
+        background-color: #d4edda; /* 연한 초록색 배경 */
+        color: #155724; /* 어두운 초록색 텍스트 */
+        border: 1px solid #c3e6cb; /* 연한 초록색 테두리 */
+    }
+
+    /* 경고 메시지 */
+    .alert-warning {
+        background-color: #fff3cd; /* 연한 노란색 배경 */
+        color: #856404; /* 어두운 노란색 텍스트 */
+        border: 1px solid #ffeeba; /* 연한 노란색 테두리 */
+    }
+
+    /* 에러 메시지 */
+    .alert-danger {
+        background-color: #f8d7da; /* 연한 빨간색 배경 */
+        color: #721c24; /* 어두운 빨간색 텍스트 */
+        border: 1px solid #f5c6cb; /* 연한 빨간색 테두리 */
+    }
+    
     :root {
         --table-border-color: #e7e8ea;
         --table-hover-color: #f3f3f4;

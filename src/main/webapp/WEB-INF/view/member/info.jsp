@@ -25,6 +25,13 @@
 <body>
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
+<!-- alert -->
+<c:if test="${not empty message}">
+    <div class="alert alert-${message.type}" role="alert">
+            ${message.text}
+    </div>
+</c:if>
+
 <div class="container">
     <form>
         <fieldset>
@@ -70,13 +77,6 @@
             </div>
         </fieldset>
     </form>
-
-    <!-- alert -->
-    <c:if test="${not empty message}">
-        <div class="alert alert-${message.type}" role="alert">
-                ${message.text}
-        </div>
-    </c:if>
 </div>
 </body>
 </html>
