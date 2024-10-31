@@ -40,7 +40,7 @@
                 </li>
 
                 <li>
-                    <button class="btn-dark">
+                    <button class="btn-dark" onclick="return confirm('저장하시겠습니까?');">
                         <i class="fa-solid fa-floppy-disk"></i>
                         저장
                     </button>
