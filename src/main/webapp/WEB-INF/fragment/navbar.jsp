@@ -136,8 +136,9 @@
     }
 
     :root {
-        --table-border-color: #e7e8ea;
-        --table-hover-color: #f3f3f4;
+        --table-header-color: #f7f7f7;
+        --table-border-color: #eaeaea;
+        --table-hover-color: #f9f9f9;
 
         --btn-normal-dark: #212529;
         --btn-normal-light: #fff;

@@ -18,42 +18,32 @@
             text-align: center;
         }
 
-        th {
-            background: #8a8b8c;
-        }
-
-        tr {
-            cursor: pointer;
-        }
-
-        tr td {
+        thead tr {
+            height: 50px;
+            border-top: 1px solid #000;
+            background: var(--table-header-color);
             border-bottom: 1px solid var(--table-border-color);
         }
 
-        tr:last-child {
+        tbody tr {
+            cursor: pointer;
+            height: 40px;
+        }
+
+        tbody tr td {
+            border-bottom: 1px solid var(--table-border-color);
+        }
+
+        tbody tr:last-child {
             border-bottom: none;
         }
 
-        tr:hover {
+        tbody tr:hover {
             background: var(--table-hover-color);
         }
 
-        tr td {
+        tbody tr td {
             padding: 5px 10px;
-        }
-
-        .name {
-            text-align: left;
-        }
-
-        .description {
-            text-align: left;
-            color: var(--description);
-            font-size: var(--small-font-size);
-        }
-
-        .created {
-            font-size: var(--small-font-size);
         }
     </style>
 </head>
