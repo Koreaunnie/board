@@ -12,6 +12,10 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <style>
+        .container {
+            width: 60%;
+        }
+
         .table-view {
             border-collapse: collapse;
             width: 100%;
@@ -61,6 +65,14 @@
             text-align: left;
             padding: 30px;
         }
+
+        .button-wrap {
+            margin-top: 30px;
+        }
+
+        .button-wrap ul li {
+            margin: 0 15px;
+        }
     </style>
 </head>
 
@@ -101,7 +113,7 @@
 
     <c:if test="${hasAccess}">
         <div class="button-wrap">
-            <ul>
+            <ul class=>
                 <li>
                     <a href="/board/edit?id=${board.id}" onclick="return confirm('게시물을 수정하시겠습니까?');"
                        class="btn btn-dark">

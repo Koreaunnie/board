@@ -12,6 +12,10 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <style>
+        .container {
+            width: 60%;
+        }
+
         p {
             font-size: 12px;
             margin-left: 10px;

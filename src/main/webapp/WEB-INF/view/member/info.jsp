@@ -18,7 +18,17 @@
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <style>
+        .container {
+            width: 60%;
+        }
 
+        .button-wrap {
+            margin-top: 30px;
+        }
+
+        .button-wrap ul li {
+            margin: 0 15px;
+        }
     </style>
 </head>
 

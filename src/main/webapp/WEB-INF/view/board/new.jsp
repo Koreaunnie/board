@@ -12,6 +12,13 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <style>
+        .container {
+            width: 60%;
+        }
+
+        .button-wrap {
+            margin-top: 30px;
+        }
 
     </style>
 </head>

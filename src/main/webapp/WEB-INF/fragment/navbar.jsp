@@ -8,17 +8,14 @@
         list-style: none;
     }
 
-    body {
+    body, a, p, ul, li {
         margin: 0;
+        padding: 0;
     }
 
     a {
         color: inherit;
         display: block;
-    }
-
-    ul, li {
-        padding: 0;
     }
 
     input, textarea {
@@ -35,6 +32,7 @@
         padding: 10px 20px;
         font-size: 16px;
         font-weight: bold;
+
     }
 
     .btn {
@@ -189,6 +187,7 @@
 
         --btn-normal-dark: #212529;
         --btn-normal-light: #fff;
+        --btn-normal-info: #727373;
         --btn-normal-hover: #424649;
         --btn-normal-hover-border: #373b3e;
 
@@ -196,6 +195,7 @@
         --btn-warning-light: #fff;
         --btn-warning-hover: #bb2d3b;
         --btn-warning-hover-border: #b02a37;
+
 
         --small-font-size: 14px;
         --normal-font-size: 16px;
@@ -228,7 +228,6 @@
     }
 
     .container {
-        width: 60%;
         margin: 0 auto;
         margin-top: 30px;
     }
@@ -251,6 +250,7 @@
 
     nav ul {
         display: flex;
+        padding: 20px;
         justify-content: space-evenly;
     }
 
@@ -260,7 +260,7 @@
 
     .user-info {
         text-align: right;
-        margin-top: -5px;
+        margin-top: 10px;
         padding-right: 10px;
     }
 </style>

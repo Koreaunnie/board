@@ -12,17 +12,29 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <style>
+        .container {
+            max-width: 450px;
+        }
+
+        .button-wrap {
+            margin-top: 30px;
+        }
+
+        .button-join {
+            width: 100%;
+        }
+
         .button-login {
             text-align: center;
-            margin-top: 50px;
-            color: #727373;
+            margin-top: 20px;
+            color: var(--btn-normal-info);
         }
 
         .button-login a {
             display: inline-block;
             font-weight: bold;
             text-decoration-line: underline;
-            color: #000;
+            color: var(--btn-normal-dark);
         }
     </style>
 </head>
@@ -70,7 +82,7 @@
             </ul>
 
             <div class="button-wrap">
-                <button class="btn-dark">
+                <button class="btn-dark button-join">
                     가입하기
                 </button>
             </div>

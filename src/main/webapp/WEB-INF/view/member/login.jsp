@@ -19,6 +19,10 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <style>
+        .container {
+            max-width: 450px;
+        }
+
         .button-wrap {
             margin-top: 30px;
         }
@@ -29,15 +33,26 @@
 
         .button-join {
             text-align: center;
-            margin-top: 30px;
-            color: #727373;
+            margin-top: 15px;
+            color: var(--btn-normal-dark);
         }
 
-        .button-join a {
+        .button-join button {
+            width: 100%;
+            height: 50px;
+        }
+
+        .button-find-password {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--btn-normal-info);
+        }
+
+        .button-find-password a {
             display: inline-block;
             font-weight: bold;
             text-decoration-line: underline;
-            color: #000;
+            color: var(--btn-normal-dark);
         }
     </style>
 </head>
@@ -77,9 +92,15 @@
                 </div>
 
                 <div class="button-join">
+                    <button type="button" class="btn btn-dark-outline" onclick="location.href='/member/join'">
+                        회원가입
+                    </button>
+                </div>
+
+                <div class="button-find-password">
                     <p>
-                        회원 가입 후 홈페이지를 이용해보세요.
-                        <a href="/member/join">회원가입</a>
+                        비밀번호를 까먹으셨나요?
+                        <a href="/member/join">비밀번호 찾기</a>
                     </p>
                 </div>
             </div>
