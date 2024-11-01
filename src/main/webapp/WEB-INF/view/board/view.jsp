@@ -37,10 +37,14 @@
 
         .table-view thead tr .th-writer {
             width: 60%;
+            text-align: left;
+            padding-left: 20px;
         }
 
         .table-view thead tr .th-date {
             width: 40%;
+            text-align: right;
+            padding-right: 20px;
         }
 
         .table-view tbody {
