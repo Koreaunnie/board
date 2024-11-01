@@ -31,12 +31,12 @@
 <div class="container">
     <form>
         <fieldset>
-            <legend>${board.id}번 게시물</legend>
+            <legend>${board.title}</legend>
 
             <ul>
                 <li>
-                    <label for="input-title">제목</label>
-                    <input type="text" id="input-title" value="${board.title}" readonly>
+                    <label for="input-title">#</label>
+                    <input type="text" id="input-title" value="${board.id}" readonly>
                 </li>
 
                 <li>

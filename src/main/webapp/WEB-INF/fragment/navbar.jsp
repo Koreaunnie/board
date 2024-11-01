@@ -8,6 +8,10 @@
         list-style: none;
     }
 
+    body {
+        margin: 0;
+    }
+
     a {
         color: inherit;
         display: block;
