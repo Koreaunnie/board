@@ -19,7 +19,26 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <style>
+        .button-wrap {
+            margin-top: 30px;
+        }
 
+        .button-login button {
+            width: 100%;
+        }
+
+        .button-join {
+            text-align: center;
+            margin-top: 30px;
+            color: #727373;
+        }
+
+        .button-join a {
+            display: inline-block;
+            font-weight: bold;
+            text-decoration-line: underline;
+            color: #000;
+        }
     </style>
 </head>
 
@@ -51,19 +70,18 @@
             </ul>
 
             <div class="button-wrap">
-                <ul>
-                    <li>
-                        <button class="btn-dark">
-                            로그인
-                        </button>
-                    </li>
+                <div class="button-login">
+                    <button class="btn-dark">
+                        로그인
+                    </button>
+                </div>
 
-                    <li>
-                        <a href="/member/join" class="btn btn-dark-outline">
-                            회원가입
-                        </a>
-                    </li>
-                </ul>
+                <div class="button-join">
+                    <p>
+                        회원 가입 후 홈페이지를 이용해보세요.
+                        <a href="/member/join">회원가입</a>
+                    </p>
+                </div>
             </div>
         </fieldset>
     </form>

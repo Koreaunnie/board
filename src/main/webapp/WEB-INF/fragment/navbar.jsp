@@ -17,17 +17,24 @@
         display: block;
     }
 
+    ul, li {
+        padding: 0;
+    }
+
     input, textarea {
         border: 1px solid #dee2e6;
         border-radius: 5px;
         padding: 7px;
     }
 
+    /* -------------------------- button --------------------------- */
+
     button {
         cursor: pointer;
         border-radius: 5px;
         padding: 10px 20px;
         font-size: 16px;
+        font-weight: bold;
     }
 
     .btn {
@@ -209,10 +216,6 @@
         font-weight: bold;
     }
 
-    li {
-        margin: 20px;
-    }
-
     label {
         font-weight: bold;
         display: block;
@@ -239,7 +242,7 @@
         justify-content: center;
     }
 
-    /* common style */
+    /* nav */
 
     nav {
         width: 100%;
