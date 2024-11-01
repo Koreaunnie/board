@@ -12,6 +12,18 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <style>
+        .button-login {
+            text-align: center;
+            margin-top: 50px;
+            color: #727373;
+        }
+
+        .button-login a {
+            display: inline-block;
+            font-weight: bold;
+            text-decoration-line: underline;
+            color: #000;
+        }
     </style>
 </head>
 
@@ -61,6 +73,12 @@
                 <button class="btn-dark">
                     가입하기
                 </button>
+            </div>
+
+            <div class="button-login">
+                <p>이미 아이디가 있으신가요?
+                    <a href="/member/login">로그인</a>
+                </p>
             </div>
         </fieldset>
     </form>
