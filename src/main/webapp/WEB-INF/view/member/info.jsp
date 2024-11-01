@@ -19,7 +19,7 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <style>
         .container {
-            width: 60%;
+            max-width: 700px;
         }
 
         .button-wrap {

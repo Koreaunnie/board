@@ -20,7 +20,7 @@
 
     <style>
         .container {
-            width: 60%;
+            max-width: 700px;
         }
     </style>
 </head>

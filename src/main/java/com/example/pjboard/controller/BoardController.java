@@ -6,10 +6,7 @@ import com.example.pjboard.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Map;
@@ -51,8 +48,12 @@ public class BoardController {
 
     // 게시판 > 목록
     @GetMapping("list")
-    public void listBoard(Model model) {
-        model.addAttribute("boardList", service.list());
+    public void listBoard(@RequestParam(name = "page", defaultValue = "1") Integer page,
+                          Model model) {
+
+        // 한 페이지에 10개의 게시물
+        Map<String, Object> result = service.list(page);
+        model.addAllAttributes(result);
     }
 
     // 게시판 > 게시물 보기

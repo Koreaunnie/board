@@ -13,7 +13,7 @@
 
     <style>
         .container {
-            width: 60%;
+            max-width: 700px;
         }
 
         .table-view {

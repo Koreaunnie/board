@@ -51,4 +51,18 @@ public interface BoardMapper {
             WHERE writer = #{memberId}
             """)
     int deleteByMemberId(String memberId);
+
+//    pagination
+
+    @Select("""
+            SELECT COUNT(*)
+            FROM Board
+            """)
+    int countAll();
+
+    @Select("""
+            SELECT *
+            FROM Board
+            """)
+    List<Board> selectAllPaging(Integer offset, Integer pageSize);
 }

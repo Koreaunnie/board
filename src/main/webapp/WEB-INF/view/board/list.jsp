@@ -13,7 +13,7 @@
 
     <style>
         .container {
-            width: 60%;
+            max-width: 700px;
         }
     </style>
 </head>
@@ -45,6 +45,36 @@
         </c:forEach>
         </tbody>
     </table>
+
+    <div class="search">
+        <form action="">
+            <label for="input-search">검색</label>
+            <input type="text" id="input-search">
+        </form>
+    </div>
+
+    <div class="pagination">
+        <ul>
+            <%-- 이전 --%>
+            <li>
+                <a href=""></a>
+            </li>
+
+            <%-- 숫자 --%>
+            <c:forEach begin="" end="">
+
+            </c:forEach>
+
+            <li>
+                <a href=""></a>
+            </li>
+
+            <%-- 다음 --%>
+            <li>
+                <a href=""></a>
+            </li>
+        </ul>
+    </div>
 </div>
 </body>
 </html>
