@@ -12,6 +12,51 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <style>
+        .table-view {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+        }
+
+        .table-view thead tr {
+            border-top: 1px solid #000;
+            background: var(--table-header-color);
+            border-bottom: 1px solid var(--table-border-color);
+        }
+
+        .table-view thead .tr-title {
+            height: 50px;
+            font-size: 1.5rem;
+        }
+
+        .table-view thead .tr-subtitle {
+            height: 40px;
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+
+        .table-view thead tr .th-writer {
+            width: 60%;
+        }
+
+        .table-view thead tr .th-date {
+            width: 40%;
+        }
+
+        .table-view tbody {
+            width: 100%;
+            height: 500px;
+        }
+
+        .table-view tbody tr td {
+            border-bottom: 1px solid var(--table-border-color);
+            width: 100%;
+        }
+
+        .table-view tbody .table-td-content {
+            text-align: left;
+            padding: 30px;
+        }
     </style>
 </head>
 
@@ -29,33 +74,26 @@
 </c:if>
 
 <div class="container">
-    <form>
-        <fieldset>
-            <legend>${board.title}</legend>
+    <h1>게시판</h1>
 
-            <ul>
-                <li>
-                    <label for="input-title">#</label>
-                    <input type="text" id="input-title" value="${board.id}" readonly>
-                </li>
+    <table class="table-view">
+        <thead>
+        <tr class="tr-title">
+            <th colspan="2">${board.title}</th>
+        </tr>
 
-                <li>
-                    <label for="textarea-content">내용</label>
-                    <textarea id="textarea-content" cols="30" rows="10" readonly>${board.content}</textarea>
-                </li>
+        <tr class="tr-subtitle">
+            <th class="th-writer">${board.writer}</th>
+            <th class="th-date">${board.created}</th>
+        </tr>
+        </thead>
 
-                <li>
-                    <label for="input-writer">작성자</label>
-                    <input type="text" id="input-writer" value="${board.writer}" readonly>
-                </li>
-
-                <li>
-                    <label for="input-date">작성일</label>
-                    <input type="text" id="input-date" value="${board.created}" readonly>
-                </li>
-            </ul>
-        </fieldset>
-    </form>
+        <tbody>
+        <tr>
+            <td colspan="2" class="table-td-content">${board.content}</td>
+        </tr>
+        </tbody>
+    </table>
 
     <c:if test="${hasAccess}">
         <div class="button-wrap">

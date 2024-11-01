@@ -10,42 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            text-align: center;
-        }
-
-        thead tr {
-            height: 50px;
-            border-top: 1px solid #000;
-            background: var(--table-header-color);
-            border-bottom: 1px solid var(--table-border-color);
-        }
-
-        tbody tr {
-            cursor: pointer;
-            height: 40px;
-        }
-
-        tbody tr td {
-            border-bottom: 1px solid var(--table-border-color);
-        }
-
-        tbody tr:last-child {
-            border-bottom: none;
-        }
-
-        tbody tr:hover {
-            background: var(--table-hover-color);
-        }
-
-        tbody tr td {
-            padding: 5px 10px;
-        }
-    </style>
 </head>
 
 <body>
@@ -54,7 +18,7 @@
 <div class="container">
     <h1>게시판</h1>
 
-    <table>
+    <table class="table-list">
         <thead>
         <tr>
             <th>#</th>

@@ -70,6 +70,44 @@
         background: var(--btn-warning-hover);
     }
 
+    /* -------------------------- table-list --------------------------- */
+
+    .table-list {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: center;
+    }
+
+    .table-list thead tr {
+        height: 50px;
+        border-top: 1px solid #000;
+        background: var(--table-header-color);
+        border-bottom: 1px solid var(--table-border-color);
+    }
+
+    .table-list tbody tr {
+        cursor: pointer;
+        height: 40px;
+    }
+
+    .table-list tbody tr td {
+        border-bottom: 1px solid var(--table-border-color);
+    }
+
+    .table-list tbody tr:last-child {
+        border-bottom: none;
+    }
+
+    .table-list tbody tr:hover {
+        background: var(--table-hover-color);
+    }
+
+    .table-list tbody tr td {
+        padding: 5px 10px;
+    }
+
+    /* -------------------------- alert --------------------------- */
+
     .alert {
         width: 60%;
         margin: 30px auto;
@@ -77,8 +115,6 @@
         border-radius: 5px;
         position: relative; /* 상대 위치 */
     }
-
-    /* -------------------------- alert --------------------------- */
 
     /* 성공 메시지 */
     .alert-success {
