@@ -18,10 +18,43 @@
         display: block;
     }
 
+    fieldset {
+        border: 0;
+    }
+
+    legend {
+        margin: 10px auto;
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin: 10px 5px;
+    }
+
     input, textarea {
         border: 1px solid #dee2e6;
+        box-sizing: border-box;
         border-radius: 5px;
-        padding: 7px;
+        width: 100%;
+        padding: 10px;
+        /*outline: none;*/
+    }
+
+    select {
+        border: 1px solid #dee2e6;
+        box-sizing: border-box;
+        border-radius: 5px;
+        padding: 10px;
+        margin-right: 5px;
+        outline: none;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 30px;
     }
 
     /* -------------------------- button --------------------------- */
@@ -200,32 +233,6 @@
         --normal-font-size: 16px;
     }
 
-    h1 {
-        text-align: center;
-        margin: 30px;
-    }
-
-    fieldset {
-        border: 0;
-    }
-
-    legend {
-        margin: 10px auto;
-        font-size: 2em;
-        font-weight: bold;
-    }
-
-    label {
-        font-weight: bold;
-        display: block;
-        margin: 10px 5px;
-    }
-
-    input, textarea {
-        width: 100%;
-        padding: 10px;
-    }
-
     .container {
         margin: 0 auto;
         margin-top: 30px;
@@ -278,7 +285,7 @@
 
         <c:if test="${loggedIn}">
             <li>
-                <a href="/board/new">
+                <a href="/board/new" title="게시글 작성">
                     게시글 작성
                 </a>
             </li>
@@ -287,7 +294,7 @@
 
         <c:if test="${not loggedIn}">
             <li>
-                <a href="/member/login">
+                <a href="/member/login" title="로그인">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </li>
@@ -295,7 +302,7 @@
 
         <c:if test="${loggedIn}">
             <li>
-                <a href="/member/info?id=${sessionScope.loggedInMember.id}">
+                <a href="/member/info?id=${sessionScope.loggedInMember.id}" title="회원 정보">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </li>
@@ -303,7 +310,7 @@
 
         <c:if test="${loggedIn}">
             <li>
-                <a href="/member/logout" onclick="return confirm('로그아웃 하시겠습니까?');">
+                <a href="/member/logout" onclick="return confirm('로그아웃 하시겠습니까?');" title="로그아웃">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     로그아웃
                 </a>
@@ -312,7 +319,7 @@
 
         <c:if test="${loggedIn && isAdmin}">
             <li>
-                <a href="/member/list">
+                <a href="/member/list" title="회원 목록">
                     <i class="fa-solid fa-address-book"></i>
                     회원목록
                 </a>
