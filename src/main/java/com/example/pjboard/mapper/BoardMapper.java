@@ -12,14 +12,15 @@ public interface BoardMapper {
     @Insert("""
             INSERT INTO Board 
             (title, content, writer) 
-            VALUES (#{board.title}, #{board.content}, #{member.id})
+            VALUES (#{board.title}, #{board.content}, #{member.id}, #{board.pinned})
             """)
     @Options(useGeneratedKeys = true, keyProperty = "board.id")
     int insert(Board board, Member member);
 
     @Select("""
             SELECT *
-            FROM Board ORDER BY modified DESC, created DESC
+            FROM Board 
+            ORDER BY pinned DESC, modified DESC, created DESC
             LIMIT #{offset}, 10
             """)
     List<Board> selectAllPaging(Integer offset);

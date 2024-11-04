@@ -11,4 +11,5 @@ public class Board {
     private String content;
     private String writer;
     private LocalDateTime created;
+    private Boolean pinned; // 상단 고정 여부
 }

@@ -26,6 +26,9 @@
 <body>
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
+<%-- 로그인 여부 --%>
+<c:set value="${not empty sessionScope.loggedInMember}" var="loggedIn"/>
+
 <!-- alert -->
 <c:if test="${not empty message}">
     <div class="alert alert-${message.type}" role="alert">
@@ -37,6 +40,12 @@
     <form method="post">
         <fieldset>
             <legend>게시물 작성</legend>
+
+            <c:if test="${loggedIn}">
+                <label for="input-pinned"></label>
+                <input type="checkbox" name="pinned" id="input-pinned">
+                고정 게시물로 등록
+            </c:if>
 
             <ul>
                 <li>
