@@ -23,24 +23,65 @@ public class BoardService {
     }
 
     public Map<String, Object> list(Integer page) {
-        // 한 페이지에 표시할 게시물 수
-        Integer pageSize = 10;
-
-        // 페이지 시작 위치 계산
+        // 한 페이지에 10개
         Integer offset = (page - 1) * 10;
 
         // 페이징 적용하여 게시물 조회
-        List<Board> boards = mapper.selectAllPaging(offset, pageSize);
+        List<Board> list = mapper.selectAllPaging(offset);
+
+        // Controller 에게 넘겨 줄 정보들을 담을 map
+        Map<String, Object> map = new HashMap<>();
+
+        // 페이지 관련 정보들
 
         // 총 게시물 수
         Integer totalCount = mapper.countAll();
 
+        // 현재 페이지
+        Integer currentPageNumber = page;
+
+        // 마지막 페이지 번호
+        Integer lastPageNumber = (totalCount - 1) / 10 + 1;
+
+        // 현재 페이지 기준 끝 페이지 번호
+        Integer endPageNumber = ((page - 1) / 10 + 1) * 10;
+
+        // 현재 페이지 기준 시작 페이지 번호
+        Integer beginPageNumber = endPageNumber - 9;
+
+        // 다음 버튼 클릭 시 이동하는 페이지 번호
+        Integer nextPageNumber = endPageNumber + 1;
+
+        // 이전 버튼 클릭 시 이동하는 페이지 번호
+        Integer previousPageNumber = beginPageNumber - 1;
+
+        // 다음 버튼 유무
+        Boolean hasNextPage = nextPageNumber < lastPageNumber;
+
+        // 이전 버튼 유무
+        Boolean hasPreviousPage = previousPageNumber > 0;
+
+        // 오른쪽 끝페이지 제한 (마지막 페이지보다 클 수 없음)
+        endPageNumber = Math.min(endPageNumber, lastPageNumber);
+
         // 페이지 정보와 게시물 리스트를 함께 저장
-        Map<String, Object> result = new HashMap<>();
-        result.put("totalCount", totalCount);
+        Map<String, Object> pageInfo = new HashMap<>();
+
+        pageInfo.put("totalCount", totalCount);
+        pageInfo.put("currentPageNumber", currentPageNumber);
+        pageInfo.put("lastPageNumber", lastPageNumber);
+        pageInfo.put("endPageNumber", endPageNumber);
+        pageInfo.put("beginPageNumber", beginPageNumber);
+        pageInfo.put("nextPageNumber", nextPageNumber);
+        pageInfo.put("previousPageNumber", previousPageNumber);
+        pageInfo.put("hasNextPage", hasNextPage);
+        pageInfo.put("hasPreviousPage", hasPreviousPage);
+
+        map.put("pageInfo", pageInfo);
+        map.put("boardList", list);
 
         // 모든 게시물을 조회하여 반환
-        return result;
+        return map;
     }
 
     public Board get(Integer id) {

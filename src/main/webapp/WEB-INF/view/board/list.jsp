@@ -15,6 +15,30 @@
         .container {
             max-width: 700px;
         }
+
+        .pagination {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .pagination ul {
+            display: flex;
+            height: 35px;
+            vertical-align: center;
+            border: 1px solid var(--table-border-color);
+            box-sizing: border-box;
+        }
+
+        .pagination ul li {
+            width: 30px;
+            text-align: center;
+            border: 1px solid var(--table-border-color);
+            box-sizing: border-box;
+        }
+
+        .pagination .active {
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -53,28 +77,47 @@
         </form>
     </div>
 
-    <div class="pagination">
+    <nav class="pagination">
         <ul>
             <%-- 이전 --%>
-            <li>
-                <a href=""></a>
-            </li>
+            <c:if test="${pageInfo.hasPreviousPage}">
+                <c:url value="/board/list" var="pageLink">
+                    <c:param name="page" value="${pageInfo.prevPageNumber}"/>
+                </c:url>
+
+                <li>
+                    <a href="${pageLink}" aria-label="Previous">&laquo;</a>
+                </li>
+            </c:if>
 
             <%-- 숫자 --%>
-            <c:forEach begin="" end="">
+            <c:forEach begin="${pageInfo.beginPageNumber}" end="${pageInfo.endPageNumber}" var="pageNumber">
+                <c:url value="/board/list" var="pageLink">
+                    <c:param name="page" value="${pageNumber}"/>
+                </c:url>
 
+                <li>
+                    <a href="${pageLink}"
+                       class="${pageInfo.currentPageNumber == pageNumber ? 'active' : ''}">${pageNumber}</a>
+                </li>
             </c:forEach>
 
-            <li>
-                <a href=""></a>
-            </li>
 
             <%-- 다음 --%>
-            <li>
-                <a href=""></a>
-            </li>
+            <c:if test="${pageInfo.hasNextPage}">
+                <c:url value="/board/list" var="pageLink">
+                    <c:param name="page" value="${pageInfo.nextPageNumber}"/>
+                </c:url>
+
+                <li>
+                    <a href="/board/list?page=${pageNumber}" aria-label="Next">&raquo;</a>
+                </li>
+            </c:if>
+
         </ul>
-    </div>
+    </nav>
+
+
 </div>
 </body>
 </html>

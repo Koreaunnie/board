@@ -19,10 +19,16 @@ public interface BoardMapper {
 
     @Select("""
             SELECT *
-            FROM Board
-            ORDER BY modified DESC, created DESC
+            FROM Board ORDER BY modified DESC, created DESC
+            LIMIT #{offset}, 10
             """)
-    List<Board> selectAll();
+    List<Board> selectAllPaging(Integer offset);
+
+    @Select("""
+            SELECT COUNT(*)
+            FROM Board
+            """)
+    int countAll();
 
     @Select("""
             SELECT *
@@ -51,18 +57,4 @@ public interface BoardMapper {
             WHERE writer = #{memberId}
             """)
     int deleteByMemberId(String memberId);
-
-//    pagination
-
-    @Select("""
-            SELECT COUNT(*)
-            FROM Board
-            """)
-    int countAll();
-
-    @Select("""
-            SELECT *
-            FROM Board
-            """)
-    List<Board> selectAllPaging(Integer offset, Integer pageSize);
 }

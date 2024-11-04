@@ -196,7 +196,6 @@
         --btn-warning-hover: #bb2d3b;
         --btn-warning-hover-border: #b02a37;
 
-
         --small-font-size: 14px;
         --normal-font-size: 16px;
     }
@@ -243,18 +242,18 @@
 
     /* nav */
 
-    nav {
+    .header {
         width: 100%;
         background: #212529;
     }
 
-    nav ul {
+    .header ul {
         display: flex;
         padding: 20px;
         justify-content: space-evenly;
     }
 
-    nav ul li a {
+    .header ul li a {
         color: #e7e8ea;
     }
 
@@ -271,7 +270,7 @@
 <%-- 관리자 여부--%>
 <c:set value="${sessionScope.loggedInMember.authorization.contains('admin')}" var="isAdmin"/>
 
-<nav>
+<nav class="header">
     <ul>
         <li>
             <a href="/board/list">게시판</a>
