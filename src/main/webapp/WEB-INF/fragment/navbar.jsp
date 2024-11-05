@@ -59,15 +59,6 @@
 
     /* -------------------------- button --------------------------- */
 
-    button {
-        cursor: pointer;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
-
-    }
-
     .btn {
         cursor: pointer;
         border-radius: 5px;

@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-
 <html>
 <head>
     <meta charset="utf-8">
@@ -34,11 +33,11 @@
         }
 
         .table-list thead tr .th-id {
-            width: 10%;
+            width: 7%;
         }
 
         .table-list thead tr .th-title {
-            width: 50%;
+            width: 45%;
         }
 
         .table-list thead tr .th-writer {
@@ -46,12 +45,20 @@
         }
 
         .table-list thead tr .th-date {
-            width: 15%;
+            width: 18%;
         }
 
-        .pinned {
+        .table-list tbody .pinned {
             background-color: #f8f9fa;
-            border-left: 4px solid #007bff;
+            border-left: 4px solid #e63a3a;
+        }
+
+        .table-list tbody .td-id {
+            font-size: var(--small-font-size);
+        }
+
+        .table-list tbody .td-date {
+            font-size: var(--small-font-size);
         }
 
         .pagination {
@@ -117,7 +124,7 @@
                 </div>
 
                 <div class="search-button">
-                    <button class="btn-dark" title="검색하기">
+                    <button class="btn btn-dark" title="검색하기">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
@@ -146,10 +153,10 @@
         <tbody>
         <c:forEach items="${boardList}" var="board">
             <tr onclick="location.href='/board/view?id=${board.id}'" class="${board.pinned ? 'pinned' : ''}">
-                <td>${board.id}</td>
+                <td class="td-id">${board.id}</td>
                 <td>${board.title}</td>
                 <td>${board.writerNickname}</td>
-                <td>${board.created}</td>
+                <td class="td-date">${board.created}</td>
             </tr>
         </c:forEach>
         </tbody>

@@ -124,7 +124,7 @@
                 <li>
                     <form action="/board/delete" method="post" onsubmit="return confirm('게시물을 삭제하시겠습니까?');">
                         <input type="hidden" name="id" value="${board.id}">
-                        <button type="submit" class="btn-warning">삭제</button>
+                        <button type="submit" class="btn btn-warning">삭제</button>
                     </form>
                 </li>
             </ul>

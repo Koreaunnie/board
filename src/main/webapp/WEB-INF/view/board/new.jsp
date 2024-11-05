@@ -64,7 +64,7 @@
             <ul>
                 <li>
                     <label for="input-title">제목 *</label>
-                    <input type="text" id="input-title" name="title" maxlength="50" required>
+                    <input type="text" id="input-title" name="title" maxlength="30" required>
                 </li>
 
                 <li>
@@ -76,7 +76,7 @@
             <div class="button-wrap">
                 <ul>
                     <li>
-                        <button class="btn-dark" onclick="return confirm('게시물을 등록하시겠습니까?');">
+                        <button class="btn btn-dark" onclick="return confirm('게시물을 등록하시겠습니까?');">
                             <i class="fa-solid fa-floppy-disk"></i>
                             저장
                         </button>

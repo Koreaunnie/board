@@ -117,7 +117,7 @@
                     <li>
                         <form action="/member/delete" method="post">
                             <input type="hidden" name="id" value="${member.id}">
-                            <button type="submit" class="btn-warning">탈퇴</button>
+                            <button type="submit" class="btn btn-warning">탈퇴</button>
                         </form>
                     </li>
                 </ul>

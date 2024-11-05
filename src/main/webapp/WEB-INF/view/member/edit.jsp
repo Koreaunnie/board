@@ -70,7 +70,7 @@
             </ul>
 
             <div class=" button-wrap">
-                <button class="btn-dark">
+                <button class="btn btn-dark">
                     <i class="fa-solid fa-floppy-disk"></i>
                     저장
                 </button>

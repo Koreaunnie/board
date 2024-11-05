@@ -86,7 +86,7 @@
 
             <div class="button-wrap">
                 <div class="button-login">
-                    <button class="btn-dark">
+                    <button class="btn btn-dark">
                         로그인
                     </button>
                 </div>

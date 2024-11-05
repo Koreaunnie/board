@@ -18,7 +18,7 @@ public interface BoardMapper {
     int insert(Board board, Member member);
 
     @Select("""
-            SELECT b.id, b.title, m.nickname AS writerNickname, b.created
+            SELECT b.id, b.title, m.nickname AS writerNickname, b.created, b.pinned
             FROM Board b JOIN Member m 
                 ON b.writer = m.id
             ORDER BY pinned DESC, modified DESC, created DESC

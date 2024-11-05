@@ -82,7 +82,7 @@
             </ul>
 
             <div class="button-wrap">
-                <button class="btn-dark button-join">
+                <button class="btn btn-dark button-join">
                     가입하기
                 </button>
             </div>
