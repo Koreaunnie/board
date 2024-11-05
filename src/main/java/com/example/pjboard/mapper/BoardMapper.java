@@ -33,7 +33,7 @@ public interface BoardMapper {
     int countAll();
 
     @Select("""
-            SELECT b.id, b.title, m.nickname AS writerNickname, b.created, b.content
+            SELECT b.id, b.title, b.writer, m.nickname AS writerNickname, b.created, b.content
             FROM Board b JOIN Member m
                 ON b.writer = m.id
             WHERE b.id = #{id}

@@ -253,7 +253,7 @@
         justify-content: center;
     }
 
-    /* nav */
+    /* -------------------------- nav --------------------------- */
 
     .header {
         width: 100%;
@@ -268,6 +268,10 @@
 
     .header ul li a {
         color: #e7e8ea;
+    }
+
+    .header .active {
+        font-weight: bold;
     }
 
     .user-info {
@@ -336,7 +340,7 @@
 
 <c:if test="${loggedIn}">
     <p class="user-info">
-            ${sessionScope.loggedInMember.id}님이 로그인하셨습니다.
+            ${sessionScope.loggedInMember.nickname}님이 로그인하셨습니다.
     </p>
 </c:if>
 
