@@ -20,7 +20,6 @@
         .input-pinned {
             position: absolute;
             right: 10px;
-            color: var(--btn-normal-info);
             font-weight: normal;
         }
 
@@ -32,7 +31,9 @@
 </head>
 
 <body>
-<c:import url="/WEB-INF/fragment/navbar.jsp"/>
+<c:import url="/WEB-INF/fragment/navbar.jsp">
+    <c:param name="active" value="new"/>
+</c:import>
 
 <%-- 로그인 여부 --%>
 <c:set value="${not empty sessionScope.loggedInMember}" var="loggedIn"/>

@@ -290,12 +290,12 @@
 <nav class="header">
     <ul>
         <li>
-            <a href="/board/list">게시판</a>
+            <a href="/board/list" class="${param.active == 'list' ? 'active' : ''}">게시판</a>
         </li>
 
         <c:if test="${loggedIn}">
             <li>
-                <a href="/board/new" title="게시글 작성">
+                <a href="/board/new" class="${param.active == 'new' ? 'active' : ''}">
                     게시글 작성
                 </a>
             </li>
