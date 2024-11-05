@@ -69,22 +69,23 @@
         }
 
         .pagination {
-            width: 300px;
+            width: 490px;
             margin: 0 auto;
             margin-top: 30px;
         }
 
         .pagination ul {
             display: flex;
+            justify-content: center;
         }
 
         .pagination ul li {
             height: 35px;
-            width: 35px;
+            width: 7%;
             line-height: 35px;
             text-align: center;
-            margin: 5px;
-            border-radius: 10px;
+            border-radius: 20px;
+            font-size: var(--small-font-size);
         }
 
         .pagination ul li:hover {
@@ -92,7 +93,7 @@
         }
 
         .pagination ul li a {
-            border-radius: 10px;
+            border-radius: 20px;
             color: var(--btn-normal-info);
             vertical-align: middle;
         }
@@ -172,7 +173,7 @@
     <nav class="pagination">
         <ul>
             <%-- 이전 --%>
-            <c:if test="${pageInfo.hasPreviousPage}">
+            <c:if test="${pageInfo.hasPrevPage}">
                 <c:url value="/board/list" var="pageLink">
                     <c:param name="page" value="${pageInfo.prevPageNumber}"/>
                 </c:url>
@@ -202,7 +203,7 @@
                 </c:url>
 
                 <li>
-                    <a href="/board/list?page=${pageNumber}" aria-label="Next">&raquo;</a>
+                    <a href="${pageLink}" aria-label="Next">&raquo;</a>
                 </li>
             </c:if>
 

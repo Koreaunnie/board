@@ -39,7 +39,7 @@
 
         .button-join button {
             width: 100%;
-            height: 50px;
+            height: 45px;
         }
 
         .button-find-password {

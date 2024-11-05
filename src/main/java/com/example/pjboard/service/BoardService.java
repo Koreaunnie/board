@@ -53,13 +53,13 @@ public class BoardService {
         Integer nextPageNumber = endPageNumber + 1;
 
         // 이전 버튼 클릭 시 이동하는 페이지 번호
-        Integer previousPageNumber = beginPageNumber - 1;
+        Integer prevPageNumber = beginPageNumber - 1;
 
         // 다음 버튼 유무
         Boolean hasNextPage = nextPageNumber < lastPageNumber;
 
         // 이전 버튼 유무
-        Boolean hasPreviousPage = previousPageNumber > 0;
+        Boolean hasPrevPage = prevPageNumber > 0;
 
         // 오른쪽 끝페이지 제한 (마지막 페이지보다 클 수 없음)
         endPageNumber = Math.min(endPageNumber, lastPageNumber);
@@ -73,9 +73,9 @@ public class BoardService {
         pageInfo.put("endPageNumber", endPageNumber);
         pageInfo.put("beginPageNumber", beginPageNumber);
         pageInfo.put("nextPageNumber", nextPageNumber);
-        pageInfo.put("previousPageNumber", previousPageNumber);
+        pageInfo.put("prevPageNumber", prevPageNumber);
         pageInfo.put("hasNextPage", hasNextPage);
-        pageInfo.put("hasPreviousPage", hasPreviousPage);
+        pageInfo.put("hasPrevPage", hasPrevPage);
 
         map.put("pageInfo", pageInfo);
         map.put("boardList", list);
