@@ -34,14 +34,21 @@
         margin: 10px 5px;
     }
 
-    textarea, input[type=text] {
+    input[type=text] {
         border: 1px solid #dee2e6;
         box-sizing: border-box;
         border-radius: 5px;
         width: 100%;
         height: 40px;
         padding: 0 10px;
-        /*outline: none;*/
+    }
+
+    textarea {
+        border: 1px solid #dee2e6;
+        box-sizing: border-box;
+        border-radius: 5px;
+        width: 100%;
+        padding: 10px;
     }
 
     select {

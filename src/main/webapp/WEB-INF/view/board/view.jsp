@@ -35,7 +35,6 @@
 
         .table-view thead .tr-subtitle {
             height: 40px;
-            font-size: 0.9rem;
         }
 
         .table-view thead tr .th-writer {
@@ -50,6 +49,7 @@
             text-align: right;
             padding-right: 20px;
             font-weight: normal;
+            font-size: 0.9rem;
         }
 
         .table-view tbody {
@@ -101,7 +101,7 @@
         </tr>
 
         <tr class="tr-subtitle">
-            <th class="th-writer">${board.writer}</th>
+            <th class="th-writer">${board.writerNickname}</th>
             <th class="th-date">${board.created}</th>
         </tr>
         </thead>

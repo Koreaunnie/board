@@ -11,7 +11,7 @@ public interface BoardMapper {
 
     @Insert("""
             INSERT INTO Board
-            (title, content, writer, pinned) 
+            (title, content, writer, pinned)
             VALUES (#{board.title}, #{board.content}, #{member.id}, #{board.pinned})
             """)
     @Options(useGeneratedKeys = true, keyProperty = "board.id")
@@ -33,9 +33,10 @@ public interface BoardMapper {
     int countAll();
 
     @Select("""
-            SELECT *
-            FROM Board
-            WHERE id = #{id}
+            SELECT b.id, b.title, m.nickname AS writerNickname, b.created, b.content
+            FROM Board b JOIN Member m
+                ON b.writer = m.id
+            WHERE b.id = #{id}
             """)
     Board selectById(Integer id);
 
