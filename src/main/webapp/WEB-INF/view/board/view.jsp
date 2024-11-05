@@ -30,25 +30,26 @@
 
         .table-view thead .tr-title {
             height: 50px;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
 
         .table-view thead .tr-subtitle {
             height: 40px;
             font-size: 0.9rem;
-            font-weight: normal;
         }
 
         .table-view thead tr .th-writer {
             width: 60%;
             text-align: left;
             padding-left: 20px;
+            font-weight: normal;
         }
 
         .table-view thead tr .th-date {
             width: 40%;
             text-align: right;
             padding-right: 20px;
+            font-weight: normal;
         }
 
         .table-view tbody {
@@ -63,6 +64,7 @@
 
         .table-view tbody .table-td-content {
             text-align: left;
+            vertical-align: top;
             padding: 30px;
         }
 

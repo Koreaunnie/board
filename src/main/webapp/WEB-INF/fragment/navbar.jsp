@@ -39,7 +39,8 @@
         box-sizing: border-box;
         border-radius: 5px;
         width: 100%;
-        padding: 10px;
+        height: 40px;
+        padding: 0 10px;
         /*outline: none;*/
     }
 
@@ -47,7 +48,8 @@
         border: 1px solid #dee2e6;
         box-sizing: border-box;
         border-radius: 5px;
-        padding: 10px;
+        height: 40px;
+        padding: 0 10px;
         margin-right: 5px;
         outline: none;
     }

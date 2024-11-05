@@ -26,10 +26,17 @@
             display: flex;
         }
 
-
         .list-header .button-wrap {
             position: absolute;
             right: 0;
+        }
+
+        .list-header .search-button button {
+            cursor: pointer;
+            height: 40px;
+            padding: 0 15px;
+            border-radius: 0 5px 5px 0;
+            margin-left: -5px;
         }
 
         .table-list thead tr .th-id {
@@ -124,7 +131,7 @@
                 </div>
 
                 <div class="search-button">
-                    <button class="btn btn-dark" title="검색하기">
+                    <button class="btn-dark" title="검색하기">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
