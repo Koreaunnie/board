@@ -11,7 +11,7 @@ public interface BoardMapper {
 
     @Insert("""
             INSERT INTO Board 
-            (title, content, writer) 
+            (title, content, writer, pinned) 
             VALUES (#{board.title}, #{board.content}, #{member.id}, #{board.pinned})
             """)
     @Options(useGeneratedKeys = true, keyProperty = "board.id")

@@ -32,6 +32,11 @@
             right: 0;
         }
 
+        .pinned {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+        }
+
         .pagination {
             width: 300px;
             margin: 0 auto;
@@ -73,6 +78,9 @@
 
 <%-- 로그인 여부 --%>
 <c:set value="${not empty sessionScope.loggedInMember}" var="loggedIn"/>
+
+<%-- 고정 게시글 여부 --%>
+<c:set value="${board.pinned == true}" var="pinned"/>
 
 <div class="container">
     <h1>게시판</h1>
@@ -122,7 +130,7 @@
 
         <tbody>
         <c:forEach items="${boardList}" var="board">
-            <tr onclick="location.href='/board/view?id=${board.id}'">
+            <tr onclick="location.href='/board/view?id=${board.id}'" class="${board.pinned ? 'pinned' : ''}">
                 <td>${board.id}</td>
                 <td>${board.title}</td>
                 <td>${board.writer}</td>

@@ -14,6 +14,14 @@
     <style>
         .container {
             max-width: 700px;
+            position: relative;
+        }
+
+        .input-pinned {
+            position: absolute;
+            right: 10px;
+            color: var(--btn-normal-info);
+            font-weight: normal;
         }
 
         .button-wrap {
@@ -29,6 +37,9 @@
 <%-- 로그인 여부 --%>
 <c:set value="${not empty sessionScope.loggedInMember}" var="loggedIn"/>
 
+<%-- 관리자 여부--%>
+<c:set value="${sessionScope.loggedInMember.authorization.contains('admin')}" var="isAdmin"/>
+
 <!-- alert -->
 <c:if test="${not empty message}">
     <div class="alert alert-${message.type}" role="alert">
@@ -41,10 +52,13 @@
         <fieldset>
             <legend>게시물 작성</legend>
 
-            <c:if test="${loggedIn}">
-                <label for="input-pinned"></label>
-                <input type="checkbox" name="pinned" id="input-pinned">
-                고정 게시물로 등록
+            <c:if test="${loggedIn && isAdmin}">
+                <div class="input-pinned">
+                    <label for="input-pinned">
+                        <input type="checkbox" name="pinned" id="input-pinned">
+                        고정 게시물로 등록
+                    </label>
+                </div>
             </c:if>
 
             <ul>

@@ -34,7 +34,7 @@
         margin: 10px 5px;
     }
 
-    input, textarea {
+    textarea, input[type=text] {
         border: 1px solid #dee2e6;
         box-sizing: border-box;
         border-radius: 5px;
