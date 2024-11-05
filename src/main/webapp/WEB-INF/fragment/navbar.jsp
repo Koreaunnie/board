@@ -114,6 +114,7 @@
         border-collapse: collapse;
         width: 100%;
         text-align: center;
+        table-layout: fixed;
     }
 
     .table-list thead tr {

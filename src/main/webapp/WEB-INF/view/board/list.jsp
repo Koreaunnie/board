@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -32,6 +33,22 @@
             right: 0;
         }
 
+        .table-list thead th:nth-child(1) {
+            width: 10%;
+        }
+
+        .table-list thead th:nth-child(2) {
+            width: 50%;
+        }
+
+        .table-list thead th:nth-child(3) {
+            width: 25%;
+        }
+
+        .table-list thead th:nth-child(4) {
+            width: 15%;
+        }
+
         .pinned {
             background-color: #f8f9fa;
             border-left: 4px solid #007bff;
@@ -40,6 +57,7 @@
         .pagination {
             width: 300px;
             margin: 0 auto;
+            margin-top: 30px;
         }
 
         .pagination ul {
