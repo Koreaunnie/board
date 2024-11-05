@@ -79,9 +79,6 @@
 <%-- 로그인 여부 --%>
 <c:set value="${not empty sessionScope.loggedInMember}" var="loggedIn"/>
 
-<%-- 고정 게시글 여부 --%>
-<c:set value="${board.pinned == true}" var="pinned"/>
-
 <div class="container">
     <h1>게시판</h1>
 
