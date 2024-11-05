@@ -10,7 +10,7 @@ import java.util.List;
 public interface BoardMapper {
 
     @Insert("""
-            INSERT INTO Board 
+            INSERT INTO Board
             (title, content, writer, pinned) 
             VALUES (#{board.title}, #{board.content}, #{member.id}, #{board.pinned})
             """)
@@ -18,8 +18,9 @@ public interface BoardMapper {
     int insert(Board board, Member member);
 
     @Select("""
-            SELECT *
-            FROM Board 
+            SELECT b.id, b.title, m.nickname AS writerNickname, b.created
+            FROM Board b JOIN Member m 
+                ON b.writer = m.id
             ORDER BY pinned DESC, modified DESC, created DESC
             LIMIT #{offset}, 10
             """)

@@ -73,6 +73,7 @@
         border-radius: 5px;
         padding: 10px 20px;
         font-size: 16px;
+        font-weight: bold;
     }
 
     .btn-dark {
@@ -122,6 +123,10 @@
         border-top: 1px solid #000;
         background: var(--table-header-color);
         border-bottom: 1px solid var(--table-border-color);
+    }
+
+    .table-list tbody {
+        max-height: 400px;
     }
 
     .table-list tbody tr {

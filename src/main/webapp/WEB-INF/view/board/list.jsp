@@ -33,19 +33,19 @@
             right: 0;
         }
 
-        .table-list thead th:nth-child(1) {
+        .table-list thead tr .th-id {
             width: 10%;
         }
 
-        .table-list thead th:nth-child(2) {
+        .table-list thead tr .th-title {
             width: 50%;
         }
 
-        .table-list thead th:nth-child(3) {
+        .table-list thead tr .th-writer {
             width: 25%;
         }
 
-        .table-list thead th:nth-child(4) {
+        .table-list thead tr .th-date {
             width: 15%;
         }
 
@@ -136,10 +136,10 @@
     <table class="table-list">
         <thead>
         <tr>
-            <th>#</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성일</th>
+            <th class="th-id">#</th>
+            <th class="th-title">제목</th>
+            <th class="th-writer">작성자</th>
+            <th class="th-date">작성일</th>
         </tr>
         </thead>
 
@@ -148,7 +148,7 @@
             <tr onclick="location.href='/board/view?id=${board.id}'" class="${board.pinned ? 'pinned' : ''}">
                 <td>${board.id}</td>
                 <td>${board.title}</td>
-                <td>${board.writer}</td>
+                <td>${board.writerNickname}</td>
                 <td>${board.created}</td>
             </tr>
         </c:forEach>
@@ -194,8 +194,6 @@
 
         </ul>
     </nav>
-
-
 </div>
 </body>
 </html>
