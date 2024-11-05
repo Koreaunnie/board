@@ -35,7 +35,7 @@ public class MemberController {
                 "type", "success",
                 "text", "회원가입 되었습니다."));
 
-        return "redirect:/member/list";
+        return "redirect:/member/login";
     }
 
     // 회원 > 회원 목록
