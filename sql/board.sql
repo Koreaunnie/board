@@ -9,5 +9,4 @@ CREATE TABLE Board
     pinned   BOOLEAN                DEFAULT FALSE
 );
 
-INSERT INTO Board (title, content, writer)
-VALUES ('test1', 'test1', 'test1');
+DROP TABLE Board;
