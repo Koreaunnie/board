@@ -22,6 +22,10 @@
             margin-top: 7px;
             color: #555555;
         }
+
+        .button-wrap {
+            margin-top: 30px;
+        }
     </style>
 </head>
 
