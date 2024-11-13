@@ -15,6 +15,10 @@
         .container {
             max-width: 700px;
         }
+
+        .button-wrap {
+            margin-top: 30px;
+        }
     </style>
 </head>
 
@@ -44,14 +48,14 @@
                     <textarea name="content" id="textarea-content" rows="10" maxlength="5000"
                               required>${board.content}</textarea>
                 </li>
-
-                <li>
-                    <button class="btn btn-dark" onclick="return confirm('저장하시겠습니까?');">
-                        <i class="fa-solid fa-floppy-disk"></i>
-                        저장
-                    </button>
-                </li>
             </ul>
+
+            <div class="button-wrap">
+                <button class="btn btn-dark" onclick="return confirm('저장하시겠습니까?');">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    저장
+                </button>
+            </div>
         </fieldset>
     </form>
 </div>
