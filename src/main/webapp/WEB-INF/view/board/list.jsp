@@ -178,6 +178,8 @@
             <c:if test="${pageInfo.hasPrevPage}">
                 <c:url value="/board/list" var="pageLink">
                     <c:param name="page" value="${pageInfo.prevPageNumber}"/>
+                    <c:param name="search" value="${param.search}"/>
+                    <c:param name="keyword" value="${param.keyword}"/>
                 </c:url>
 
                 <li>
@@ -189,6 +191,8 @@
             <c:forEach begin="${pageInfo.beginPageNumber}" end="${pageInfo.endPageNumber}" var="pageNumber">
                 <c:url value="/board/list" var="pageLink">
                     <c:param name="page" value="${pageNumber}"/>
+                    <c:param name="search" value="${param.search}"/>
+                    <c:param name="keyword" value="${param.keyword}"/>
                 </c:url>
 
                 <li>
@@ -202,6 +206,8 @@
             <c:if test="${pageInfo.hasNextPage}">
                 <c:url value="/board/list" var="pageLink">
                     <c:param name="page" value="${pageInfo.nextPageNumber}"/>
+                    <c:param name="search" value="${param.search}"/>
+                    <c:param name="keyword" value="${param.keyword}"/>
                 </c:url>
 
                 <li>
