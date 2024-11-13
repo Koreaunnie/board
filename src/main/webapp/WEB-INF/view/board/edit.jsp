@@ -19,7 +19,7 @@
 </head>
 
 <body>
-<c:import url="/WEB-INF/fragment/navbar.jsp">
+<c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
 <!-- alert -->
 <c:if test="${not empty message}">
