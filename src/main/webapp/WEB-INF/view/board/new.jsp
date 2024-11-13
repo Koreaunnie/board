@@ -75,14 +75,10 @@
             </ul>
 
             <div class="button-wrap">
-                <ul>
-                    <li>
-                        <button class="btn btn-dark" onclick="return confirm('게시물을 등록하시겠습니까?');">
-                            <i class="fa-solid fa-floppy-disk"></i>
-                            저장
-                        </button>
-                    </li>
-                </ul>
+                <button class="btn btn-dark" onclick="return confirm('게시물을 등록하시겠습니까?');">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    저장
+                </button>
             </div>
         </fieldset>
     </form>
