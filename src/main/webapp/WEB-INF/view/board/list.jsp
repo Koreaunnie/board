@@ -70,8 +70,7 @@
 
         .pagination {
             width: 490px;
-            margin: 0 auto;
-            margin-top: 30px;
+            margin: 30px auto;
         }
 
         .pagination ul {
@@ -118,19 +117,20 @@
     <h1>게시판</h1>
 
     <div class="list-header">
+        <%-- 검색 form --%>
         <div class="search">
             <form action="">
                 <div class="search-select">
-                    <select name="category" id="select-category">
+                    <select name="search" id="select-category">
                         <option value="all">전체</option>
-                        <option value="title">제목</option>
-                        <option value="content">본문</option>
-                        <option value="writer">작성자</option>
+                        <option value="title" ${param.search == 'title' ? 'selected' : ''}>제목</option>
+                        <option value="content" ${param.search == 'content' ? 'selected' : ''}>본문</option>
+                        <option value="writer" ${param.search == 'writer' ? 'selected' : ''}>작성자</option>
                     </select>
                 </div>
 
                 <div class="search-input">
-                    <input type="text" title="검색">
+                    <input type="text" title="검색" name="keyword" value="">
                 </div>
 
                 <div class="search-button">

@@ -22,12 +22,12 @@ public class BoardService {
         mapper.insert(board, member);
     }
 
-    public Map<String, Object> list(Integer page) {
+    public Map<String, Object> list(Integer page, String search, String keyword) {
         // 한 페이지에 10개
         Integer offset = (page - 1) * 10;
 
         // 페이징 적용하여 게시물 조회
-        List<Board> list = mapper.selectAllPaging(offset);
+        List<Board> list = mapper.selectAllPaging(offset, search, keyword);
 
         // Controller 에게 넘겨 줄 정보들을 담을 map
         Map<String, Object> map = new HashMap<>();
