@@ -65,7 +65,7 @@ public interface BoardMapper {
                 </trim>
             </script>
             """)
-    int countAll();
+    int countAll(String search, String keyword);
 
     @Select("""
             SELECT b.id, b.title, b.writer, m.nickname AS writerNickname, b.created, b.content

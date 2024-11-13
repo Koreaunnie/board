@@ -35,7 +35,7 @@ public class BoardService {
         // 페이지 관련 정보들
 
         // 총 게시물 수
-        Integer totalCount = mapper.countAll();
+        Integer totalCount = mapper.countAll(search, keyword);
 
         // 현재 페이지
         Integer currentPageNumber = page;
