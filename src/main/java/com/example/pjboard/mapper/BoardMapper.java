@@ -46,8 +46,24 @@ public interface BoardMapper {
     List<Board> selectAllPaging(Integer offset, String search, String keyword);
 
     @Select("""
-            SELECT COUNT(*)
-            FROM Board
+            <script>
+                SELECT COUNT(*)
+                FROM Board b JOIN Member m
+                    ON b.writer = m.id
+                <trim prefix="WHERE" prefixOverrides="OR">
+                    <if test="search == 'all' or search == 'title'">
+                        b.title LIKE CONCAT('%', #{keyword}, '%')
+                    </if>
+            
+                    <if test="search == 'all' or search == 'content'">
+                        OR b.content LIKE CONCAT('%', #{keyword}, '%')
+                    </if>
+            
+                    <if test="search == 'all' or search == 'writer'">
+                        OR m.nickname LIKE CONCAT('%', #{keyword}, '%')
+                    </if>
+                </trim>
+            </script>
             """)
     int countAll();
 

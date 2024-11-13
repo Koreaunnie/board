@@ -130,7 +130,7 @@
                 </div>
 
                 <div class="search-input">
-                    <input type="text" title="검색" name="keyword" value="">
+                    <input type="text" title="검색" name="keyword" value="${param.keyword}">
                 </div>
 
                 <div class="search-button">
